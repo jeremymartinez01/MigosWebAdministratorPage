@@ -1,0 +1,26 @@
+<div class="toolbar">
+</div>
+  
+<div class="logincent">
+<div class="login-container">
+      <h2>LOGIN</h2>
+      <form>
+        <div class="form-group">
+          <label for="username">Usuario:</label>
+          <input class="input-user" type="text" id="username" name="username" [(ngModel)]="username">
+        </div>
+        <div class="form-group">
+            <div class="password-input">
+          <label for="password" >Contraseña:</label>
+          
+            <input class="input-password" type="password" id="password" name="password" [(ngModel)]="password" #passwordInput>
+            <button type="button" (click)="togglePasswordVisibility(passwordInput)">
+                <i class="bi {{ showPassword ? 'bi-eye-slash' : 'bi-eye' }} bi-xs"></i>
+            </button>
+          </div>
+        </div>
+  
+        <button class="button-login" (click)="login()">Iniciar sesión</button>
+      </form>
+</div>
+</div>  

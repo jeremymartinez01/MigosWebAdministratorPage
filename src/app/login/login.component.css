@@ -1,0 +1,55 @@
+.toolbar {
+    background-color: #d0e0d5;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 50px;
+  }
+  
+  .logo {
+    width: 100px;
+    height: auto;
+  }
+  .logincent{
+    padding: 150px 490px;
+    align-self: center;
+    align-items: center;
+  }
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    background-color: #c8c5c5; /* Color de fondo gris claro */
+    /* Ajusta el ancho del rectángulo y el espacio interior */
+    width: 450px;
+    padding: 10px;
+  }
+
+  
+  .form-group {
+    margin: 10px 10px;
+  }
+  
+  .login-container .input-user{
+    margin-bottom: 20px; /* Añade espacio entre la etiqueta y el campo de entrada */
+    margin-left: 53px;
+    width: 200px;
+    height: 29px;
+  }
+  .login-container .input-password{
+    margin-bottom: 20px; /* Añade espacio entre la etiqueta y el campo de entrada */
+    margin-left: 25px;
+    margin-right: 15px;
+    width: 200px;
+    height: 29px;
+  }
+  
+  .button-login {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 150px;
+    cursor: pointer;
+  }
