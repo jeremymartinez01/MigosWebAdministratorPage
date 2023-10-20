@@ -1,12 +1,12 @@
 import { Component, Output, EventEmitter } from '@angular/core'
-import { type Router } from '@angular/router'
+import { Router } from '@angular/router'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor (private readonly router: Router) {}
+  constructor (private router: Router) {}
   username: string = ''
   password: string = ''
   showPassword: boolean = false
