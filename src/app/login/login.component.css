@@ -1,4 +1,83 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
 .toolbar {
+  background-color: #d0e0d5;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 50px;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+.logincent {
+  align-self: center;
+  align-items: center;
+  text-align: center; /* Alinea el contenido en el centro horizontalmente */
+  padding: 20px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #c8c5c5;
+  width: 450px;
+  height: 350px;
+  padding: 10px;
+}
+.form-group {
+  margin: 10px 10px;
+  margin-left: 25px;
+}
+
+.login-container .input-user {
+  margin-bottom: 20px;
+  width: 200px;
+  height: 29px;
+  margin-left: 25px;
+  margin-right: 17px;
+}
+
+.login-container .input-password {
+  margin-bottom: 20px;
+  width: 200px;
+  height: 29px;
+  margin-left: 21px;
+  margin-right: 10px;
+}
+
+
+.button-login {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 150px;
+  cursor: pointer;
+}
+
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#errorMessage {
+  color: red;
+  font-size: 12px;
+}
+/*.toolbar {
     background-color: #d0e0d5;
     color: #fff;
     display: flex;
@@ -26,7 +105,7 @@
     padding: 10px;
   }
 
-  
+
   .form-group {
     margin: 10px 10px;
   }
@@ -61,3 +140,4 @@
     color: red;
     font-size: 12px;
   }
+*/

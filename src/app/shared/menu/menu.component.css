@@ -1,7 +1,34 @@
-.button-logout {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 150px;
-    cursor: pointer;
-  }
+.menu-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.top-bar {
+  background-color: #d0e0d5;
+  height: 50px;
+}
+
+.menu-and-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.hamburger-menu {
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+.hamburger-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.hamburger-menu li {
+  cursor: pointer;
+}
+
+router-outlet {
+  flex-grow: 1;
+}

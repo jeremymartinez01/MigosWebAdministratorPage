@@ -1,3 +1,43 @@
+<div class="top-bar"></div>
+<div class="menu-container">
+    <div class="hamburger-menu">
+        <mat-list role="list">
+            <mat-list-item role="listitem" routerLink="/conductores">Conductores</mat-list-item>
+            <mat-list-item role="listitem" routerLink="/empresas">Empresas/Publicistas</mat-list-item>
+            <mat-list-item role="listitem" routerLink="/campanias">Campañas</mat-list-item>
+            <mat-list-item role="listitem" routerLink="/solicitudes">Solicitudes Pendientes</mat-list-item>
+            <mat-list-item role="listitem" routerLink="/verificaciones">Verificaciones Pendientes</mat-list-item>
+            <mat-list-item role="listitem" routerLink="/notificaciones">Notificaciones</mat-list-item>
+            <mat-list-item role="listitem" routerLink="/permisos">Permisos</mat-list-item>
+            <mat-list-item role="listitem" routerLink="/dashboard">Dashboard</mat-list-item>
+            <mat-list-item role="listitem" routerLink="/configuracion">Configuración</mat-list-item>
+            <mat-list-item role="listitem" (click)="logout()">Cerrar sesión</mat-list-item>
+        </mat-list>
+    </div>
+  
+    <div class="content-container">
+      <router-outlet></router-outlet>
+    </div>
+</div>
+<!--
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" mat-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-drawer-container class="container">
+    <mat-drawer #drawer mode="side" opened>
+        <mat-list role="list">
+            <mat-list-item role="listitem" routerLink="/dashboard">dashboard</mat-list-item>
+            <button class="button-logout" (click)="logout()">Cerrar sesión</button>
+        </mat-list>
+    </mat-drawer>
+    <mat-drawer-content>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+
+
 <div>
 <ul>
     <li><p>Por hacer</p><li>
@@ -6,3 +46,4 @@
     </li>
 </ul>
 </div>
+-->
