@@ -12,6 +12,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { ConductoresComponent } from './pages/conductores/conductores.component';
 import { EmpresasComponent } from './pages/empresas/empresas.component';
 import { CampaniasComponent } from './pages/campanias/campanias.component';
@@ -44,7 +46,9 @@ import { ConfiguracionComponent } from './pages/configuracion/configuracion.comp
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

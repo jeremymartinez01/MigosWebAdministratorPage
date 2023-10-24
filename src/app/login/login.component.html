@@ -1,27 +1,26 @@
-<!--<div class="toolbar"></div>-->
 <body>
-<div class="logincent">
-  <div class="login-container">
-    <h2>LOGIN</h2>
-    <form>
-      <div class="form-group">
-        <label for="username">Usuario:</label>
-        <input class="input-user" type="text" id="username" name="username" [(ngModel)]="username">
-      </div>
-      <div class="form-group">
-        <div class="password-input">
-          <label for="password" >Contraseña:</label>
-          <input class="input-password" type="password" id="password" name="password" [(ngModel)]="password" #passwordInput>
-          <button type="button" (click)="togglePasswordVisibility(passwordInput)">
-              <i class="bi-xs {{ showPassword ? 'bi-eye-slash' : 'bi-eye' }} bi-xs"></i>
-          </button>
+  <div class="logincent">
+    <div class="login-container">
+      <img alt="migo logo" src="../../assets/migo_logo.png" height="100"/>
+      <form>
+        <div class="form-group">
+          <div class="floating-input">
+            <i class="bi bi-person"></i> 
+            <input class="input" type="text" id="email" name="email" placeholder="Email" [(ngModel)]="username">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="floating-input">
+            <i class="bi bi-lock"></i> 
+            <i (click)="togglePasswordVisibility(passwordInput)" class="bi-xs {{ showPassword ? 'bi-eye-slash' : 'bi-eye' }}"></i>
+            <input class="input input-password" type="password" id="password" name="password" [(ngModel)]="password" #passwordInput placeholder="Password">
+          </div>
         </div>
         <div class="error-container">
           <p id="errorMessage">{{ errorMessage }}</p>
         </div>
-      </div>
-      <button class="button-login" (click)="login()">Iniciar sesión</button>
-    </form>
-  </div>
-</div>  
+        <button class="button-login" (click)="login()">LOGIN</button>
+      </form>
+    </div>
+  </div>  
 </body>
