@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserlistService {
-  private URL: string = 'http://migoadvs.pythonanywhere.com/Database/Database/usuarios/';
+  private URL: string = 'https://migoadvs.pythonanywhere.com/Database/Database/usuarios/';
   //?format=json
   constructor(private http: HttpClient) {}
 
