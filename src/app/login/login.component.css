@@ -99,8 +99,8 @@ body {
   display: block;
   width: 100%;
   border: none;
-  background-color: rgba(255, 255, 255, 0.377);
-  border-bottom: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0);
+  border-bottom: 2px solid #000;
   margin: 10px 0;
 }
 .input::placeholder {
@@ -109,4 +109,27 @@ body {
 
 .bi-xs {
   margin-left: 300px;
+}
+.opciones {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+
+.checkbox-input {
+  transform: scale(0.8);
+  margin-right: 5px;
+}
+
+
+.forgot-password {
+  font-size: 12px; 
+  font-style: italic;
+  margin-left: 120px;
 }
