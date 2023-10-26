@@ -1,46 +1,48 @@
-<div class="menu-container">
-  <div class="menu-content">
-      <div class="top-bar">
+<div class="menu-principal">
+  <div class="menu-toolbar">
+      <div class="logo">
         <img src="../../../assets/migo_logo.png"alt="Logo de la empresa">
       </div>
       
-          <div class="user-image">
-              <img src="../../../assets/conductores02.png" alt="Imagen del usuario">
-          </div>
-          <div class="user-name">
-            Nombre del Usuario
-          </div>
+      <div class="user-image">
+        <img src="../../../assets/conductores02.png" alt="Imagen del usuario">
+      </div>
+
+      <div class="user-name">
+        <span class="user-text">Username</span>
+        <!--<hr class="user-divider" color="#FFFF00">-->
+        <span class="user-divider"></span>
+      </div>
         
-            <hr class="user-divider">
-          
-      
-      
-      <div class="hamburger-menu">
+      <div class="menu-options">
         <mat-list role="list">
-          <mat-list-item role="listitem" routerLink="/conductores">
+
+          <mat-list-item role="listitem" routerLink="/conductores" >
             <img class="menu-img" src="../../../assets/conductores02.png" alt="Conductores">
             <span class="menu-text">Conductores</span>
           </mat-list-item>
-          <mat-list-item role="listitem" routerLink="/empresas">
+
+          <mat-list-item role="listitem" routerLink="/empresas" >
             <img class="menu-img" src="../../../assets/empresas.png" alt="Empresas">
             <span class="menu-text">Empresas/Publicistas</span>
           </mat-list-item>
-          <mat-list-item role="listitem" routerLink="/campanias">
+
+          <mat-list-item role="listitem" routerLink="/campanias" >
             <img class="menu-img" src="../../../assets/campaคas.png" alt="Campañas">
             <span class="menu-text">Campañas</span>
           </mat-list-item>
-        
-          <mat-list-item role="listitem" routerLink="/solicitudes">
+
+          <mat-list-item role="listitem" routerLink="/solicitudes" >
             <img class="menu-img" src="../../../assets/solicitudes.png" alt="Solicitudes Pendientes">
             <span class="menu-text">Solicitudes Pendientes</span>
           </mat-list-item>
         
-          <mat-list-item role="listitem" routerLink="/verificaciones">
+          <mat-list-item role="listitem" routerLink="/verificaciones" >
             <img class="menu-img" src="../../../assets/verificaciones.png" alt="Verificaciones Pendientes">
             <span class="menu-text">Verificaciones Pendientes</span>
           </mat-list-item>
         
-          <mat-list-item role="listitem" routerLink="/notificaciones">
+          <mat-list-item role="listitem" routerLink="/notificaciones" >
             <img class="menu-img" src="../../../assets/notificaciones.png" alt="Notificaciones">
             <span class="menu-text">Notificaciones</span>
           </mat-list-item>
@@ -55,19 +57,19 @@
             <span class="menu-text">Dashboard</span>
           </mat-list-item>
         
-          <mat-list-item role="listitem" routerLink="/configuracion">
+          <mat-list-item role="listitem" routerLink="/configuracion" >
             <img class="menu-img" src="../../../assets/configuracion02.png" alt="Configuración">
             <span class="menu-text">Configuración</span>
           </mat-list-item>
         
-          <mat-list-item role="listitem" (click)="logout()">
+          <mat-list-item role="listitem" (click)="logout()" >
             <img class="menu-img" src="../../../assets/cerrar.png" alt="Cerrar sesión">
             <span class="menu-text">Cerrar sesión</span>
          </mat-list-item>
-      </mat-list>
+        </mat-list>
       </div>
   </div>
-  <div class="content-container">
+  <div class="menu-router">
     <router-outlet></router-outlet>
   </div>
 </div> 
