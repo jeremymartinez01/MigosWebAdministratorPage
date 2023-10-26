@@ -7,9 +7,6 @@ import { Component,Output,EventEmitter } from '@angular/core';
 })
 export class MenuComponent {
   @Output() onLogout: EventEmitter<void> = new EventEmitter<void>();
-  selectedOption: string="default";
-  
-
 
   logout(){
     this.onLogout.emit();

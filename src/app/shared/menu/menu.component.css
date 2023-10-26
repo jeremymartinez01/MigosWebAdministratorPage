@@ -94,5 +94,3 @@ mat-list-item {
   flex-grow: 1; /* Permite que el contenido de enrutamiento ocupe el espacio restante */
   overflow-y: auto; /* Agrega desplazamiento vertical si es necesario */
 }
-
-
