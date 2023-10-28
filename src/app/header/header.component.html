@@ -1,15 +1,21 @@
 <div class="header-container">
+    
     <div class="banner-container">
       <img src="../../assets/banner_panel.jpg" alt="Banner" class="banner">
     </div>
+
     <div class="user-info">
-      <p>{{ email }}</p>
-      <mat-form-field class="filter-input">
+      <div class="email">
+        <span>{{ email }}</span>
+      </div>
+      <div class="input">
+        <mat-form-field class="filter-input">
         <input matInput placeholder="Filtrar">
         <button mat-icon-button>
           <mat-icon>search</mat-icon>
         </button>
-      </mat-form-field>
+        </mat-form-field>
+      </div>
     </div>
-  </div>
+</div>
   
