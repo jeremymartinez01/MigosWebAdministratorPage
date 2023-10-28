@@ -1,0 +1,26 @@
+.header-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    flex-direction: column;
+    position: relative;
+}
+
+.user-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.banner {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+}
+.banner img{
+    
+    width: 100%;
+    height: auto; /* Mantendrá la proporción de la imagen */
+    display: block; 
+}

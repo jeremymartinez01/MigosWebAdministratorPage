@@ -482,9 +482,10 @@
 
 <app-login></app-login>
 -->
-<div *ngIf="!isLoggedIn">
+<!--<div *ngIf="!isLoggedIn">
   <app-login (onLogin)="login()"></app-login>
 </div>
 <div *ngIf="isLoggedIn">
   <app-menu (onLogout)="logout()"></app-menu>
-</div>
+</div>-->
+<app-menu></app-menu>

@@ -1,1 +1,53 @@
-<p>Por hacer notificaciones</p>
+<div class="notification-center">
+    <div class="top-container">
+        <div class="datepicker-container" >
+        <mat-form-field appearance="fill">
+            <mat-label>escoge una fecha</mat-label>
+            <input placeholder="Escoge una fecha" matInput [matDatepicker]="picker">
+           <!-- <mat-hint>MM/DD/YYYY</mat-hint>-->
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        </div>
+        <div class="button-estado">    
+          <button mat-flat-button color="accent">LEIDAS</button>
+          <button mat-flat-button color="accent">ANTERIORES</button>
+        </div>
+    </div>  
+    <div class="button-container">
+      <button class="delete-all-button" mat-raised-button color="black" (click)="deleteAllNotifications()">
+        <span class="button-all">Borrar todo</span>
+        <mat-icon> delete</mat-icon>
+      </button>
+    </div>
+    
+    <div class="notification-list">
+      <div *ngFor="let notification of visibleNotifications; let i = index" class="notification-container">
+        <div class="notification-image">
+          <img [src]="notification.imageSrc" alt="Imagen de la notificación">
+        </div>
+       
+          <div class="notification-header">
+            <h4>{{ notification.title }}</h4>
+            <button mat-raised-button color="primary">Ver información completa</button>
+          </div>
+          <div class="notification-actions">
+            
+            <button mat-icon-button (click)="closeNotification(i)">
+              <mat-icon>close</mat-icon>
+            </button>
+            <h5 class="tiempo-llegada">hace 3 min</h5>
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <div class="paginator-container">
+    <mat-paginator [length]="paginator?.length"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="[3,4,5]"
+        aria-label="Select page">
+    </mat-paginator>
+    </div>
+</div>

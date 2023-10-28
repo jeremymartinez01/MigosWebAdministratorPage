@@ -90,7 +90,10 @@ mat-list-item {
   color: white;
 }
 
-.router-outlet {
-  flex-grow: 1; /* Permite que el contenido de enrutamiento ocupe el espacio restante */
-  overflow-y: auto; /* Agrega desplazamiento vertical si es necesario */
+
+
+.menu-router{
+  background-color:#E4ECF4;
+  padding: 2%;
+  flex-grow: 1; 
 }
