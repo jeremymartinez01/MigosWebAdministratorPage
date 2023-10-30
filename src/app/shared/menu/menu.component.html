@@ -5,11 +5,11 @@
       </div>
       
       <div class="user-image">
-        <img src="../../../assets/conductores02.png" alt="Imagen del usuario">
+        <img src="../../../assets/avatar.jpeg" alt="Imagen del usuario">
       </div>
 
       <div class="user-name">
-        <span class="user-text">Username</span>
+        <span class="user-text">USERNAME ADM</span>
         <!--<hr class="user-divider" color="#FFFF00">-->
         <span class="user-divider"></span>
       </div>
@@ -17,48 +17,48 @@
       <div class="menu-options">
         <mat-list role="list">
 
-          <mat-list-item role="listitem" routerLink="/conductores" >
-            <img class="menu-img" src="../../../assets/conductores02.png" alt="Conductores">
+          <mat-list-item role="listitem" (click)="changeSelectedOption('conductores')" [ngClass]="{'selected': selectedOption === 'conductores'}">
+            <img class="menu-img" [src]="selectedOption === 'conductores' ? '../../../assets/conductores01.png' : '../../../assets/conductores02.png'" alt="Conductores">
             <span class="menu-text">Conductores</span>
           </mat-list-item>
 
-          <mat-list-item role="listitem" routerLink="/empresas" >
-            <img class="menu-img" src="../../../assets/empresas.png" alt="Empresas">
+          <mat-list-item role="listitem" routerLink="/empresas" (click)="changeSelectedOption('empresas')" [ngClass]="{'selected': selectedOption === 'empresas'}">
+            <img class="menu-img" [src]="selectedOption === 'empresas' ? '../../../assets/empresas02.png' : '../../../assets/empresas.png'" alt="Empresas">
             <span class="menu-text">Empresas/Publicistas</span>
           </mat-list-item>
 
-          <mat-list-item role="listitem" routerLink="/campanias" >
-            <img class="menu-img" src="../../../assets/campaคas.png" alt="Campañas">
+          <mat-list-item role="listitem" routerLink="/campanias"(click)="changeSelectedOption('campañas')" [ngClass]="{'selected': selectedOption === 'campañas'}">
+            <img class="menu-img" [src]="selectedOption === 'campañas' ? '../../../assets/campanas02.png' : '../../../assets/campañas.png'" alt="Campañas">
             <span class="menu-text">Campañas</span>
           </mat-list-item>
 
-          <mat-list-item role="listitem" routerLink="/solicitudes" >
-            <img class="menu-img" src="../../../assets/solicitudes.png" alt="Solicitudes Pendientes">
+          <mat-list-item role="listitem" routerLink="/solicitudes" (click)="changeSelectedOption('solicitudes')" [ngClass]="{'selected': selectedOption === 'solicitudes'}">
+            <img class="menu-img" [src]="selectedOption === 'solicitudes' ? '../../../assets/solicitudes02.png' : '../../../assets/solicitudes.png'" alt="Solicitudes Pendientes">
             <span class="menu-text">Solicitudes Pendientes</span>
           </mat-list-item>
         
-          <mat-list-item role="listitem" routerLink="/verificaciones" >
-            <img class="menu-img" src="../../../assets/verificaciones.png" alt="Verificaciones Pendientes">
+          <mat-list-item role="listitem" routerLink="/verificaciones" (click)="changeSelectedOption('verificaciones')" [ngClass]="{'selected': selectedOption === 'verificaciones'}">
+            <img class="menu-img" [src]="selectedOption === 'verificaciones' ? '../../../assets/verificaciones02.png' : '../../../assets/verificaciones.png'" alt="Verificaciones Pendientes">
             <span class="menu-text">Verificaciones Pendientes</span>
           </mat-list-item>
         
-          <mat-list-item role="listitem" routerLink="/notificaciones" >
-            <img class="menu-img" src="../../../assets/notificaciones.png" alt="Notificaciones">
+          <mat-list-item role="listitem" routerLink="/notificaciones" (click)="changeSelectedOption('notificaciones')" [ngClass]="{'selected': selectedOption === 'notificaciones'}">
+            <img class="menu-img"[src]="selectedOption === 'notificaciones' ? '../../../assets/notificaciones02.png' : '../../../assets/notificaciones.png'" alt="Notificaciones">
             <span class="menu-text">Notificaciones</span>
           </mat-list-item>
         
-          <mat-list-item role="listitem" routerLink="/permisos">
-            <img class ="menu-img" src="../../../assets/permisos.png" alt="Permisos">
+          <mat-list-item role="listitem" routerLink="/permisos"(click)="changeSelectedOption('permisos')" [ngClass]="{'selected': selectedOption === 'permisos'}">
+            <img class ="menu-img" [src]="selectedOption === 'permisos' ? '../../../assets/permisos02.png' : '../../../assets/permisos.png'"  alt="Permisos">
             <span class="menu-text">Permisos</span>
           </mat-list-item>
         
-          <mat-list-item role="listitem" routerLink="/dashboard">
-            <img class="menu-img" src="../../../assets/paneldecontrol.png" alt="Dashboard">
+          <mat-list-item role="listitem" routerLink="/dashboard"(click)="changeSelectedOption('dashboard')" [ngClass]="{'selected': selectedOption === 'dashboard'}">
+            <img class="menu-img" [src]="selectedOption === 'dashboard' ? '../../../assets/paneldecontrol02.png' : '../../../assets/paneldecontrol.png'"  alt="Dashboard">
             <span class="menu-text">Dashboard</span>
           </mat-list-item>
         
-          <mat-list-item role="listitem" routerLink="/configuracion" >
-            <img class="menu-img" src="../../../assets/configuracion02.png" alt="Configuración">
+          <mat-list-item role="listitem" routerLink="/configuracion" (click)="changeSelectedOption('configuracion')" [ngClass]="{'selected': selectedOption === 'configuracion'}">
+            <img class="menu-img"[src]="selectedOption === 'configuracion' ? '../../../assets/configuracion.png' : '../../../assets/configuracion02.png'"   alt="Configuración">
             <span class="menu-text">Configuración</span>
           </mat-list-item>
         
@@ -70,6 +70,7 @@
       </div>
   </div>
   <div class="menu-router">
+    <app-header></app-header>
     <router-outlet></router-outlet>
   </div>
 </div> 
