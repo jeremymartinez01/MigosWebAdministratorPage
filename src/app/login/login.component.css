@@ -35,29 +35,7 @@ body {
   border: 2px solid #fff;
 
 }
-/*
-.form-group {
-  margin: 10px 10px;
-  margin-left: 25px;
-}
 
-.login-container .input-user {
-  margin-bottom: 20px;
-  width: 200px;
-  height: 29px;
-  margin-left: 25px;
-  margin-right: 17px;
-}
-
-.login-container .input-password {
-  margin-bottom: 20px;
-  width: 200px;
-  height: 29px;
-  margin-left: 21px;
-  margin-right: 10px;
-}
-
-*/
 .button-login {
   background-color: #e1f134;
   color: #000;

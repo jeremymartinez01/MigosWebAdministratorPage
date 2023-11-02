@@ -17,7 +17,7 @@ body {
   
   position: sticky;
   display: flex;
-  height: 100vh;
+  height: 180%;
   flex-direction: column;
   width: 20vw; 
   background-color:black;
@@ -152,9 +152,6 @@ mat-list-item {
   box-sizing: border-box;
   max-height: 100;
   width: 100%;
-  
-  
-  position: absoluta; 
   overflow: auto;
 }
 
