@@ -1,3 +1,25 @@
-.test{
-    background-color: brown;
-}
+.conductores-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .option span {
+    margin-right: 10px;
+  }
+  
+  .material-icons {
+    font-size: 24px;
+  }
+  
