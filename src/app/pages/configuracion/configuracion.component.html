@@ -1,1 +1,41 @@
-<p>Por hacer configuracion</p>
+<div class=" root-container">
+
+    <div class="filtros-root" >
+     
+        <div class="datepicker-container" >
+        <mat-form-field appearance="fill">
+            <mat-label>escoge una fecha</mat-label>
+            <input placeholder="Escoge una fecha" matInput [matDatepicker]="picker">
+           <!-- <mat-hint>MM/DD/YYYY</mat-hint>-->
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        </div>
+      
+    </div>
+
+    <div class="notificaciones-root">
+
+          <div class="card-configuracion"  id="verificacion">
+            <img class="img-config" src="../../../assets/notificaciones02.png" alt="verificacion">
+             <h2>verificacion</h2>
+            </div>    
+            <div class="card-configuracion"  id="sector">
+            <img class="img-config" src="../../../assets/notificaciones02.png" alt="sector">
+            <h2>sector</h2>
+            </div>  
+            <div class="card-configuracion" id="notificacion">
+           <img class="img-config" src="../../../assets/notificaciones02.png" alt="notificacion">
+           <h2>notificacion</h2>
+            </div>  
+            <div class="card-configuracion" id="vehiculo">
+            <img class="img-config" src="../../../assets/notificaciones02.png" alt="vehiculo">
+            <h2>vehiculo</h2>
+            </div>  
+            <div class="card-configuracion"  id="brandeo">
+            <img class="img-config" src="../../../assets/notificaciones02.png" alt="brandeo">
+            <h2>brandeo</h2>
+            </div>
+    
+    </div>
+</div>
