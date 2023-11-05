@@ -1,0 +1,112 @@
+.root-container{
+   position: relative;
+   display: grid;
+   grid-template-rows: 13% 87%;
+   width: inherit;
+   height: 100%;
+}
+.filtros-root{
+    
+}
+.top-container {
+    background-color: #fff;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+  }
+
+ 
+  mat-form-field.mat-mdc-form-field{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 4% 2%;
+    width: 600px;
+    box-sizing: border-box;
+  }
+  
+  .notification-content {
+    width: 100%;
+  }
+  
+  .notification-actions {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    /* align-content: flex-end; */
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  
+  button.mat-raised-button {
+    border-radius: 40px; /* Redondear las esquinas del botón "Ver más información" */
+  }
+  .button-container {
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+    padding: 10px; /* Espacio alrededor del botón */
+  }
+
+.notificaciones-root {
+   
+   /* grid-column: span 10;*/
+    background-image: url('../../../assets/back_principal.jpg');
+    background-position: -140px 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(7, 1fr);
+    gap: 10px;
+   
+   /* grid-template-areas:
+
+      "f21 verificacion verificacion f24 sector sector f27 notificacion notificacion f210"
+      "f31 verificacion verificacion f34 sector sector f37 notificacion notificacion f310"
+
+      "f51 f52 vehiculo vehiculo f55 f56 brandeo brandeo f59 f510"
+      "f61 f62 vehiculo vehiculo f65 f66 brandeo brandeo f69 f610"*/
+}
+
+
+.card-configuracion {
+    display: flex;
+    flex-direction: column;
+
+    width: 200px;
+    height: 200px;
+    border:  #A8B4B2;
+    background-color:rgba(168,180,178,0.5);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    filter: brightness(3.0);
+    
+    border-radius: 10px;
+    padding: 10px;
+
+}
+
+.card-configuracion img{
+    max-width: 100%;
+
+}
+.card-configuracion h2{
+    text-align: center;
+    font-weight: bold;
+}
+
+#verificacion {
+    grid-area: 2 / 2 / span 4 / span 4 ;
+}
+#sector{
+    grid-area: 2 / 5 / span 4 / span 7;
+}
+#notificacion {
+    grid-area: 2 / 8 / span 4 / span 10 ;
+}
+#vehiculo{
+    grid-area: 5 / 3 / span 7 / span 5;
+}
+#brandeo {
+    grid-area: 5 / 7 / span 7 / span 9;
+} 
