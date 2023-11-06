@@ -7,10 +7,18 @@
 }
 
 .user-info{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        height: 115px;
+        margin-bottom: 35px;
+        margin-top: 15px;
 }
 .banner {
     max-width: 100%;
@@ -24,4 +32,8 @@
     width: 100%;
     height: auto; /* Mantendrá la proporción de la imagen */
     display: block; 
+}
+.input mat-form-field{
+    margin-top: 25px;
+    height: 108x;
 }
