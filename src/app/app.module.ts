@@ -32,6 +32,7 @@ import { NotificacionesComponent } from './pages/notificaciones/notificaciones.c
 import { PermisosComponent } from './pages/permisos/permisos.component';
 import { ConfiguracionComponent } from './pages/configuracion/configuracion.component';
 import { HeaderComponent } from './header/header.component';
+import { UserformComponent } from './forms/userform/userform.component';
 
 export const DATE_FORMATS: MatDateFormats ={
   parse: {dateInput: 'dd-MM-yyyy'},
@@ -57,6 +58,7 @@ export const DATE_FORMATS: MatDateFormats ={
     PermisosComponent,
     ConfiguracionComponent,
     HeaderComponent,
+    UserformComponent,
 
   ],
   imports: [

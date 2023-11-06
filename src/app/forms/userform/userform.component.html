@@ -1,0 +1,51 @@
+<body>
+<div class="dialog-content">
+    <h2 mat-dialog-title>Registro nuevo Conductor</h2>
+
+      <div class="floating-input">
+        <label for="ciInput">C.I.:</label>
+        <input type="text" id="ciInput" [(ngModel)]="cedula" name="ciInput" />
+      </div>
+      <div class="floating-input">
+        <label for="nombresInput">Nombres:</label>
+        <input type="text" id="nombresInput" [(ngModel)]="nombres" name="nombresInput" />
+      </div>
+      <div class="floating-input">
+        <label for="apellidosInput">Apellidos:</label>
+        <input type="text" id="apellidosInput" [(ngModel)]="apellidos" name="apellidosInput" />
+      </div>
+      <div class="floating-input">
+        <label for="fnaciminetoInput">Fecha de Nacimineto</label>
+        <input type="text" id="fnaciminetoInput" [(ngModel)]="fechanacimiento" name="fnaciminetoInput" />
+      </div>
+      <div class="floating-input">
+        <label for="emailInput">Email</label>
+        <input type="text" id="emailInput" [(ngModel)]="email" name="emailInput" />
+      </div>
+      <div class="floating-input">
+        <label for="contraseniaInput">Contraseña:</label>
+        <input type="text" id="contraseniaInput" [(ngModel)]="contrasenia" name="contraseniaInput" />
+      </div>
+      <div class="floating-input">
+        <label for="ccontraseniaInput">Confirmar Contraseña:</label>
+        <input type="text" id="ccontraseniaInput" [(ngModel)]="ccontrasenia" name="ccontraseniaInput" />
+      </div>
+      <div class="floating-input">
+        <label for="telefonoInput">Teléfono:</label>
+        <input type="text" id="telefonoInput" [(ngModel)]="telefono" name="telefonoInput" />
+      </div>
+      <div class="floating-input">
+        <label for="sexoInput">Sexo:</label>
+        <input type="text" id="sexoInput" [(ngModel)]="sexo" name="sexoInput" />
+      </div>
+      <div class="floating-input">
+        <label for="empresaInput">Empresa:</label>
+        <input type="text" id="empresaInput" [(ngModel)]="empresa" name="empresaInput" />
+      </div>
+         
+    <mat-dialog-actions>
+        <button class="mat-raised-button"(click)="close()">Close</button>
+        <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+    </mat-dialog-actions>
+</div>
+</body>

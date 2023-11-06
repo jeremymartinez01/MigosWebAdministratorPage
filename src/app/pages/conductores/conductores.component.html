@@ -18,3 +18,36 @@
     </div>
   </div>
   
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Identificación</th>
+        <th>Fecha Creación</th>
+        <th>Email</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of getPagedClients()">
+        <td>{{ cliente.nombre }}</td>
+        <td>{{ cliente.cedula_cliente }}</td>
+        <td>{{ getUsuarioFechaCreacion(cliente.id_cliente) }}</td>
+        <td>{{ getUsuarioEmail(cliente.id_cliente) }}</td>
+        <td>
+          <button (click)="habilitarUsuario(cliente.id_cliente)" class="habilitar-button">Habilitar</button>
+          <button (click)="deshabilitarUsuario(cliente.id_cliente)" class="deshabilitar-button">Deshabilitar</button>
+          <button (click)="eliminarUsuario(cliente.id_cliente)" class="eliminar-button">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination-container">
+    <i class="bi bi-plus-square-fill" (click)="openFormDialog()"></i>
+    <p class="pagination-text">Mostrando {{ (currentPage * itemsPerPage + 1) }} - {{ (currentPage + 1) * itemsPerPage < clientedata.length ? (currentPage + 1) * itemsPerPage : clientedata.length }} de {{ clientedata.length }} entradas</p>
+        <button class="previous-button" (click)="previousPage()" [disabled]="currentPage === 0">Anterior</button>
+        <button class="current-text">{{ currentPage + 1 }}</button>
+        <button class="next-button" (click)="nextPage()" [disabled]="currentPage === totalPages - 1">Siguiente</button>
+  </div>
+    
+  
