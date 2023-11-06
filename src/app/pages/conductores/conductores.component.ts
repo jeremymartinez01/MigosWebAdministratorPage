@@ -5,6 +5,8 @@ import { ClientelistService } from 'src/app/providers/clientelist.service';
 import { UserlistService } from 'src/app/providers/userlist.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UserformComponent } from 'src/app/forms/userform/userform.component';
+import { forkJoin } from 'rxjs';
+
 @Component({
   selector: 'app-conductores',
   templateUrl: './conductores.component.html',
@@ -15,15 +17,24 @@ export class ConductoresComponent {
   clientedata: Cliente[]=[];
   usuariodata: User[]=[];
   
-  ngOnInit():void {
+  /*ngOnInit():void {
     this.datac.getResponse().subscribe((response) => { 
       this.clientedata = (response as Cliente[]);
-      this.loadFilteredClients(); 
+      //this.loadFilteredClients(); 
     });
     this.datau.getResponse().subscribe((response)=> {
       this.usuariodata = (response as User[]);
-      this.loadFilteredClients();
+      //this.loadFilteredClients();
       //this.loadFilteredUsers();
+    });
+  }*/
+  ngOnInit(): void {
+    forkJoin([
+      this.datac.getResponse(),
+      this.datau.getResponse()
+    ]).subscribe((responses) => {
+      this.clientedata = responses[0] as Cliente[];
+      this.usuariodata = responses[1] as User[];
     });
   }
   getUsuarioFechaCreacion(clienteId: number): String {
@@ -89,6 +100,7 @@ export class ConductoresComponent {
     }
   }  
   getPagedClients(): Cliente[] {
+    this.loadFilteredClients();
     const startIndex = this.currentPage * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
     return this.clientedata.slice(startIndex, endIndex);
