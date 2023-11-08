@@ -54,10 +54,9 @@ export class ConductoresComponent {
   }*/
   loadFilteredClients(): void {
     if (this.clientedata.length > 0) {
-      //this.clientedata = this.clientedata.filter((cliente) => cliente.estado === 1);
       this.clientedata = this.clientedata.filter((cliente) =>
-      this.usuariodata.some((user) => user.id_usuario === cliente.id_cliente)
-    );
+      this.usuariodata.some((user) => user.id_usuario === cliente.id_cliente));
+      //this.clientedata = this.clientedata.filter((cliente) => cliente.estado === 2);
     }
   }
   habilitarUsuario(clienteId: number): void {

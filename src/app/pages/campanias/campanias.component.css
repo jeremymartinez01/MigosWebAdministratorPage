@@ -1,2 +1,87 @@
+.campanias-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .option span {
+    margin-right: 10px;
+  }
+  
+  .material-icons {
+    font-size: 24px;
+  }
+  table {
+    margin-top: 35px;
+    margin-bottom: 35px;
+  }
+  
 
+  .habilitar-button {
+    background-color: rgba(0, 128, 0, 0.766);
+    color: white;
+  }
+  
+  .deshabilitar-button {
+    background-color: rgba(0, 0, 255, 0.711);
+    color: white;
+  }
+  
+  .eliminar-button {
+    background-color: rgba(255, 0, 0, 0.787);
+    color: white;
+  }
+  .table thead th {
+    background-color: black;
+    color: white;
+  }
+  
+  table button {
+    margin-right: 10px;
+    border-radius: 10px; 
+    border: none;
+  }
+  .pagination-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #cccccc96;
+    height: 50px;
+    justify-content: space-around;
+  }
+  
+  .pagination-text {
+    margin-right: 650px;
+    margin-top: 13px;
+  }
+.previous-button {
+    border: none; 
+    background: none; 
+}
+.next-button {
+    border: none; 
+    background: none; 
+}
+.current-text{
+    margin-right: 5px;
+    margin-left: 5px;
+    height: 30px;
+    margin-top: 9px;
+}
+.bi{
+    margin-top: 7px;
+    margin-right: 20px;
+    margin-left: 7px;
+    font-size: 35px;
+}
   

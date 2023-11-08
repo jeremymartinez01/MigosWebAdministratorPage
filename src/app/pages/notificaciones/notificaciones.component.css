@@ -36,7 +36,7 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Alinea las notificaciones horizontalmente */
+    align-items: center; 
   }
   .notification-container {
     margin-bottom: 5px; 
@@ -65,14 +65,13 @@
   .notification-details {
     display: flex;
     flex-direction: column;
-    flex: 1; /* Permite que los detalles ocupen el espacio disponible verticalmente */
+    flex: 1; 
   }
   
   .paginator-container {
     width: 100%;
   }
   
-  /* Estilos para los botones */
   .button {
     background-color: black;
     color: white;
@@ -89,24 +88,23 @@
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
-    /* align-content: flex-end; */
     justify-content: space-between;
     align-items: flex-end;
   }
   
   button.mat-raised-button {
-    border-radius: 40px; /* Redondear las esquinas del botón "Ver más información" */
+    border-radius: 40px; 
   }
   .delete-all-button {
     background-color: rgb(255, 255, 255);
     color: white;
-    margin-right: 10px; /* Espacio a la derecha para separar el botón de las notificaciones */
+    margin-right: 10px; 
   }
   
   .button-container {
     display: flex;
-    justify-content: flex-end; /* Alinea el contenido a la derecha */
-    padding: 10px; /* Espacio alrededor del botón */
+    justify-content: flex-end; 
+    padding: 10px;
   }
   .delete-all-button mat-icon {
     margin-right: 8px;
@@ -136,7 +134,6 @@
   background-color: #B33536; 
  }
 
- /*botones top*/
  .mat-mdc-unelevated-button:not(:disabled) {
     height: 40px;
     border-radius: 18px;

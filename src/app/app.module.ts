@@ -39,6 +39,7 @@ import { ConfigNotificacionesComponent } from './pages/config-notificaciones/con
 import { ConfigVehiculosComponent } from './pages/config-vehiculos/config-vehiculos.component';
 import { ConfigBrandeoComponent } from './pages/config-brandeo/config-brandeo.component';
 import { ConfigSectoresComponent } from './pages/config-sectores/config-sectores.component';
+import { CampaniaformComponent } from './forms/campaniaform/campaniaform.component';
 
 export const DATE_FORMATS: MatDateFormats ={
   parse: {dateInput: 'dd-MM-yyyy'},
@@ -71,6 +72,7 @@ export const DATE_FORMATS: MatDateFormats ={
     ConfigVehiculosComponent,
     ConfigBrandeoComponent,
     ConfigSectoresComponent,
+    CampaniaformComponent,
 
   ],
   imports: [

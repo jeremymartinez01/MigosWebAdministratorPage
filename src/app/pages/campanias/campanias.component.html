@@ -1,1 +1,53 @@
-<p>por hacer</p>
+<div class="campanias-container">
+    <div class="option">
+        <mat-form-field>
+            <mat-label>Todos los filtros</mat-label>
+            <mat-select>
+                <mat-option value="filter1">Filtro 1</mat-option>
+                <mat-option value="filter2">Filtro 2</mat-option>
+                <mat-option value="filter3">Filtro 3</mat-option>
+            </mat-select>
+          </mat-form-field>          
+    </div>
+    <div class="option">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Fecha de registro">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+</div>
+  
+<table class="table">
+<thead>
+    <tr>
+    <th>Nombre</th>
+    <th>Empresa</th>
+    <th>Fecha Publicada</th>
+    <th># Conductores</th>
+    <th>Tipo de Publicidad</th>
+    <th>Opciones</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let campania of getPagedClients()">
+    <td>{{ campania.nombre_campana }}</td>
+    <td>{{ getEmpresa(campania.id_empresa) }}</td>
+    <td>{{ campania.fecha_inicio }}</td>
+    <td>{{ getTotalDrivers(campania.id_campana) }}</td>
+    <td>Sticker carro</td>
+    <td>
+        <button (click)="editarCampania(campania.id_campana)" class="habilitar-button">Editar</button>
+        <button (click)="deshabilitarCampania(campania.id_campana)" class="deshabilitar-button">Deshabilitar</button>
+        <button (click)="eliminarCampania(campania.id_campana)" class="eliminar-button">Eliminar</button>
+    </td>
+    </tr>
+</tbody>
+</table>
+<div class="pagination-container">
+<i class="bi bi-plus-square-fill" (click)="openFormDialog()"></i>
+<p class="pagination-text">Mostrando {{ (currentPage * itemsPerPage + 1) }} - {{ (currentPage + 1) * itemsPerPage < campaingdata.length ? (currentPage + 1) * itemsPerPage : campaingdata.length }} de {{ campaingdata.length }} entradas</p>
+    <button class="previous-button" (click)="previousPage()" [disabled]="currentPage === 0">Anterior</button>
+    <button class="current-text">{{ currentPage + 1 }}</button>
+    <button class="next-button" (click)="nextPage()" [disabled]="currentPage === totalPages - 1">Siguiente</button>
+</div>
