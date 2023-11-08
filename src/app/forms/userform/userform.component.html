@@ -1,51 +1,65 @@
-<body>
 <div class="dialog-content">
     <h2 mat-dialog-title>Registro nuevo Conductor</h2>
 
       <div class="floating-input">
         <label for="ciInput">C.I.:</label>
-        <input type="text" id="ciInput" [(ngModel)]="cedula" name="ciInput" />
+        <input type="text" id="ciInput" [(ngModel)]="cedula" name="ciInput" required />
       </div>
       <div class="floating-input">
-        <label for="nombresInput">Nombres:</label>
-        <input type="text" id="nombresInput" [(ngModel)]="nombres" name="nombresInput" />
+        <label for="nombresInput">Nombres: </label>
+        <input type="text" id="nombresInput" [(ngModel)]="nombres" name="nombresInput" required />
       </div>
       <div class="floating-input">
-        <label for="apellidosInput">Apellidos:</label>
-        <input type="text" id="apellidosInput" [(ngModel)]="apellidos" name="apellidosInput" />
+        <label for="apellidosInput">Apellidos: </label>
+        <input type="text" id="apellidosInput" [(ngModel)]="apellidos" name="apellidosInput" required />
+      </div>
+      <div class="floating-input" id="fecha">
+        <label for="fnaciminetoInput">Fecha de Nacimineto: </label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="fechanacimiento">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <!--- <input type="text" id="fnaciminetoInput" [(ngModel)]="fechanacimiento" name="fnaciminetoInput" required /> -->
       </div>
       <div class="floating-input">
-        <label for="fnaciminetoInput">Fecha de Nacimineto</label>
-        <input type="text" id="fnaciminetoInput" [(ngModel)]="fechanacimiento" name="fnaciminetoInput" />
+        <label for="emailInput">Email: </label>
+        <input type="text" id="emailInput" [(ngModel)]="email" name="emailInput" required />
       </div>
       <div class="floating-input">
-        <label for="emailInput">Email</label>
-        <input type="text" id="emailInput" [(ngModel)]="email" name="emailInput" />
+        <label for="contraseniaInput">Contraseña: </label>
+        <input type="password" id="contraseniaInput" [(ngModel)]="contrasenia" name="contraseniaInput" #contraseniaInput required />
+        <i (click)="togglePasswordVisibility(contraseniaInput)" class="bi-xs {{ showPassword ? 'bi-eye-slash' : 'bi-eye' }}"></i>
+           
       </div>
       <div class="floating-input">
-        <label for="contraseniaInput">Contraseña:</label>
-        <input type="text" id="contraseniaInput" [(ngModel)]="contrasenia" name="contraseniaInput" />
+        <label for="ccontraseniaInput">Confirmar Contraseña: </label>
+        <input type="password" id="ccontraseniaInput" [(ngModel)]="ccontrasenia" name="ccontraseniaInput" #ccontraseniaInput required />
+        <i (click)="togglePasswordVisibility(ccontraseniaInput)" class="bi-xs {{ showPassword ? 'bi-eye-slash' : 'bi-eye' }}"></i>
+        
       </div>
       <div class="floating-input">
-        <label for="ccontraseniaInput">Confirmar Contraseña:</label>
-        <input type="text" id="ccontraseniaInput" [(ngModel)]="ccontrasenia" name="ccontraseniaInput" />
+        <label for="telefonoInput">Teléfono: </label>
+        <input type="text" id="telefonoInput" [(ngModel)]="telefono" name="telefonoInput" required />
       </div>
       <div class="floating-input">
-        <label for="telefonoInput">Teléfono:</label>
-        <input type="text" id="telefonoInput" [(ngModel)]="telefono" name="telefonoInput" />
+        <label for="sexoInput">Sexo: </label>
+        <!--<input type="text" id="sexoInput" [(ngModel)]="sexo" name="sexoInput" />-->
+        <mat-select [(ngModel)]="sexo" name="sexoInput">
+            <mat-option value="Masculino">Masculino</mat-option>
+            <mat-option value="Femenino">Femenino</mat-option>
+          </mat-select>
       </div>
       <div class="floating-input">
-        <label for="sexoInput">Sexo:</label>
-        <input type="text" id="sexoInput" [(ngModel)]="sexo" name="sexoInput" />
-      </div>
-      <div class="floating-input">
-        <label for="empresaInput">Empresa:</label>
-        <input type="text" id="empresaInput" [(ngModel)]="empresa" name="empresaInput" />
+        <label for="empresaInput">Empresa: </label>
+        <!--<input type="text" id="empresaInput" [(ngModel)]="empresa" name="empresaInput" required />-->
+        <mat-select id="empresaSelect" [(ngModel)]="empresa" name="empresaSelect">
+            <mat-option *ngFor="let empresa of empresadata" [value]="empresa.nombre">
+              {{ empresa.nombre }}
+            </mat-option>
+          </mat-select>
       </div>
          
-    <mat-dialog-actions>
-        <button class="mat-raised-button"(click)="close()">Close</button>
-        <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+    <mat-dialog-actions class="custom-dialog-actions">
+        <button class="custom-button"(click)="close()">Cancelar</button>
+        <button class="custom-button"(click)="save()">Registrar</button>
     </mat-dialog-actions>
 </div>
-</body>
