@@ -1,13 +1,18 @@
 
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-
+import { NombreVentanaService } from '../../providers/nombre-ventana.service';
 @Component({
   selector: 'app-notificaciones',
   templateUrl: './notificaciones.component.html',
   styleUrls: ['./notificaciones.component.css']
 })
 export class NotificacionesComponent implements AfterViewInit {
+  constructor(private nombreVentanaService: NombreVentanaService) {}
+
+  ngOnInit(){
+    this.nombreVentanaService.setWindowName('NOTIFICACIONES');
+  }
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
   public pageSize = 5;

@@ -4,21 +4,41 @@
     align-items: center; /* Centra verticalmente */
     flex-direction: column;
     position: relative;
+    margin-bottom: 15px;
+}
+.email{
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    line-height: 28px;
+    padding: 0;
+    margin: 0;
+}
+
+.email #ventana{
+    font-weight: 450;
+    font-size: 38px;
+}
+
+.email #nombre{
+    font-weight: lighter;
+    padding-left: 2px;
 }
 
 .user-info{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #fff;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        width: 100%;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-        height: 115px;
-        margin-bottom: 35px;
-        margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 0px 31px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    height: 100px;
+    margin-top: 15px;
 }
 .banner {
     max-width: 100%;

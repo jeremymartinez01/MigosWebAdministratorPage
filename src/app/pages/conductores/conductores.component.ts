@@ -6,14 +6,14 @@ import { UserlistService } from 'src/app/providers/userlist.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UserformComponent } from 'src/app/forms/userform/userform.component';
 import { forkJoin } from 'rxjs';
-
+import { NombreVentanaService } from '../../providers/nombre-ventana.service';
 @Component({
   selector: 'app-conductores',
   templateUrl: './conductores.component.html',
   styleUrls: ['./conductores.component.css']
 })
 export class ConductoresComponent {
-  constructor(private datac: ClientelistService,private datau: UserlistService, private formulario: MatDialog){}
+  constructor(private datac: ClientelistService,private datau: UserlistService, private formulario: MatDialog, private nombreVentanaService: NombreVentanaService){}
   clientedata: Cliente[]=[];
   usuariodata: User[]=[];
   
@@ -29,6 +29,7 @@ export class ConductoresComponent {
     });
   }*/
   ngOnInit(): void {
+    this.nombreVentanaService.setWindowName('CONDUCTORES');
     forkJoin([
       this.datac.getResponse(),
       this.datau.getResponse()

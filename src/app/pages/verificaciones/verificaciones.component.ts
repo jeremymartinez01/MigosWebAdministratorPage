@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NombreVentanaService } from '../../providers/nombre-ventana.service';
 
 @Component({
   selector: 'app-verificaciones',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./verificaciones.component.css']
 })
 export class VerificacionesComponent {
+
+  constructor(private nombreVentanaService: NombreVentanaService) {}
+
+  ngOnInit(){
+    this.nombreVentanaService.setWindowName('VERIFICACIONES');
+  }
 
 }

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserlistService } from '../providers/userlist.service';
-import { User } from '../interfaces/user'
-
+import { NombreVentanaService } from '../providers/nombre-ventana.service';
 
 @Component({
   selector: 'app-header',
@@ -9,16 +7,21 @@ import { User } from '../interfaces/user'
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  email: string = '';
+  windowName: string;
+  userName: string;
 
-  constructor(private userService: UserlistService) {}
+  constructor(private nombreVentanaService: NombreVentanaService) {
+    this.windowName = "HOME"
+    this.userName = "USER"
+  }
 
-  ngOnInit(): void {
-    this.userService.getResponse().subscribe((users: any) => {
-      if (users.length > 0) {
-        // Suponiendo que quieres obtener el email del primer usuario en la lista.
-        this.email = users[0].email;
-      }
+  ngOnInit() {
+    this.nombreVentanaService.windowName$.subscribe((name:string) => {
+      this.windowName = name;
+    });
+   
+    this.nombreVentanaService.userName$.subscribe((userName: string) => {
+      this.userName = userName;
     });
   }
 }
