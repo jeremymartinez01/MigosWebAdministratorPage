@@ -1,11 +1,21 @@
+
 .root-container{
-   position: relative;
-   display: grid;
-   grid-template-rows: 13% 87%;
-   width: inherit;
+   width: 100%;
    height: 100%;
 }
-.filtros-root{
+::ng-deep .datepicker-container{
+    display: flex;
+    background: white;
+    height: 102px;
+    margin-bottom: 17px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     
 }
 .top-container {
@@ -13,6 +23,7 @@
     display: flex;
     flex-wrap: nowrap;
     align-items: flex-start;
+    width: 100%;
   }
 
  
@@ -29,14 +40,14 @@
     width: 100%;
   }
   
-  .notification-actions {
+  /*.notification-actions {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
-    /* align-content: flex-end; */
+   
     justify-content: space-between;
     align-items: flex-end;
-  }
+  }*/
   
   button.mat-raised-button {
     border-radius: 40px; /* Redondear las esquinas del botón "Ver más información" */
@@ -48,65 +59,78 @@
   }
 
 .notificaciones-root {
-   
+    
+     width: 100%;
+     height: 100%;
    /* grid-column: span 10;*/
     background-image: url('../../../assets/back_principal.jpg');
-    background-position: -140px 0;
+    background-position: 1px -44px;
     background-repeat: no-repeat;
     background-size: cover;
     
     display: grid;
+    grid-auto-flow: row;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: repeat(7, 1fr);
-    gap: 10px;
+    gap: 0px 0px;
    
-   /* grid-template-areas:
-
-      "f21 verificacion verificacion f24 sector sector f27 notificacion notificacion f210"
-      "f31 verificacion verificacion f34 sector sector f37 notificacion notificacion f310"
-
-      "f51 f52 vehiculo vehiculo f55 f56 brandeo brandeo f59 f510"
-      "f61 f62 vehiculo vehiculo f65 f66 brandeo brandeo f69 f610"*/
+   grid-template-areas:
+      ". . . . . . . . . ."
+      ". verif verif . sector sector . noti noti ."
+      ". verif verif . sector sector . noti noti ."
+      ". . . . . . . . . ."
+      ". . vehi vehi . . bran bran . ."
+      ". . vehi vehi . . bran bran . ."
+      ". . . . . . . . . ."
 }
 
+.notificaciones-root * {
+  /*border: 1px solid red;*/
+  position: relative;
+}
 
-.card-configuracion {
-    display: flex;
-    flex-direction: column;
+/*.notificaciones-root *:after {
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+*/
 
-    width: 200px;
-    height: 200px;
-    border:  #A8B4B2;
+
+#card-configuracion {
+    /*width: 200px;
+    height: 200px;*/
+    border: 1px solid #A8B4B2;
     background-color:rgba(168,180,178,0.5);
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    filter: brightness(3.0);
-    
     border-radius: 10px;
-    padding: 10px;
+    width: 88%;
+    height: 100%;
+    /*padding: 10px;*/
 
-}
+}*/
 
-.card-configuracion img{
+#card-configuracion img{
     max-width: 100%;
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.7);
+    position: relative;
 
 }
-.card-configuracion h2{
-    text-align: center;
-    font-weight: bold;
-}
 
-#verificacion {
-    grid-area: 2 / 2 / span 4 / span 4 ;
-}
-#sector{
-    grid-area: 2 / 5 / span 4 / span 7;
-}
-#notificacion {
-    grid-area: 2 / 8 / span 4 / span 10 ;
-}
-#vehiculo{
-    grid-area: 5 / 3 / span 7 / span 5;
-}
-#brandeo {
-    grid-area: 5 / 7 / span 7 / span 9;
-} 
+.verif { grid-area: verif; }
+
+.sector { grid-area: sector; }
+
+.noti { grid-area: noti; }
+
+.vehi { grid-area: vehi; }
+
+.bran { grid-area: bran; }
