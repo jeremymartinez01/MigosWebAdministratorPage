@@ -33,6 +33,12 @@ import { PermisosComponent } from './pages/permisos/permisos.component';
 import { ConfiguracionComponent } from './pages/configuracion/configuracion.component';
 import { HeaderComponent } from './header/header.component';
 import { UserformComponent } from './forms/userform/userform.component';
+import { NotificacionHijoComponent } from './pages/notificacion-hijo/notificacion-hijo.component';
+import { ConfigVerificacionesComponent } from './pages/config-verificaciones/config-verificaciones.component';
+import { ConfigNotificacionesComponent } from './pages/config-notificaciones/config-notificaciones.component';
+import { ConfigVehiculosComponent } from './pages/config-vehiculos/config-vehiculos.component';
+import { ConfigBrandeoComponent } from './pages/config-brandeo/config-brandeo.component';
+import { ConfigSectoresComponent } from './pages/config-sectores/config-sectores.component';
 
 export const DATE_FORMATS: MatDateFormats ={
   parse: {dateInput: 'dd-MM-yyyy'},
@@ -59,6 +65,12 @@ export const DATE_FORMATS: MatDateFormats ={
     ConfiguracionComponent,
     HeaderComponent,
     UserformComponent,
+    NotificacionHijoComponent,
+    ConfigVerificacionesComponent,
+    ConfigNotificacionesComponent,
+    ConfigVehiculosComponent,
+    ConfigBrandeoComponent,
+    ConfigSectoresComponent,
 
   ],
   imports: [

@@ -1,0 +1,74 @@
+.notificacion-root {
+    
+    width: 100%;
+    height: 100%;
+  /* grid-column: span 10;*/
+   background-image: url('../../../assets/back_principal.jpg');
+   background-position: 1px -44px;
+   background-repeat: no-repeat;
+   background-size: cover;
+   
+   display: grid;
+   grid-auto-flow: row;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+   grid-template-rows: repeat(7, 1fr);
+   gap: 0px 0px;
+  
+  grid-template-areas:
+     ". . . . . . . . . ."
+     ". . . . . . . . . ."
+     ". aut aut . per per . his his ."
+     ". aut aut . per per . his his ."
+     ". . . . . . . . . ."
+     ". . . . . . . . . ."
+     ". . . . . . . . . ."
+    
+}
+
+.notificacion-root * {
+ /*border: 1px solid red;*/
+ position: relative;
+}
+
+.notificacion-root *:after {
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+#card-config {
+    /*width: 200px;
+    height: 200px;*/
+    border: 1px solid #A8B4B2;
+    background-color:rgba(168,180,178,0.5);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    width: 88%;
+    height: 100%;
+    /*padding: 10px;*/
+
+}*/
+
+#card-config img{
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.7);
+    position: relative;
+
+}
+
+.automaticas { grid-area: aut; }
+
+.personalizar { grid-area: per; }
+
+.historial { grid-area: his; }
+
