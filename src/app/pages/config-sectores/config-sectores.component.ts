@@ -17,9 +17,11 @@ export class ConfigSectoresComponent implements OnInit {
 
   openMapDialog(): void {
     const dialogRef = this.dialog.open(ConfigMapComponent, {
-      width: '600px',
+      width: '550px',
+      panelClass: 'custom-container',
     });
-
+    
+    
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {
         // Agrega los datos a la lista

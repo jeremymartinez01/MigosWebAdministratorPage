@@ -1,14 +1,17 @@
-
 <div class="dialog-content">
-  <h2 mat-dialog-title>Nuevo Sector</h2>
+  <h1 mat-dialog-title class="custom-title">Definir Sector</h1>
+ <div class="label-container">
 
   <div class="map-input">
     <label for="NameInput">Nombre: </label>
-    <input type="text" id="NameInput" [(ngModel)]="name" name="name" required />
+    <input type="text" id="NameInput" [(ngModel)]="name" required />
   </div>
 
-  <div #mapElement style="height: 400px;"></div>
-
-  <button class="custom-button" (click)="onCancelClick()">Cancelar</button>
-  <button class="custom-button" (click)="createClicked.emit()">Crear</button>
+  <label for="ubicacionInput">Ubicación: </label>
+ </div>
+  <div #mapElement class="custom-map"></div>
+  <div class="botones-mapa">
+    <button class="custom-button" id="button-1" (click)="onCancelClick()">CANCELAR</button>
+    <button class="custom-button" id="button-2"(click)="onCreateClick()">CREAR</button>
+  </div>
 </div>

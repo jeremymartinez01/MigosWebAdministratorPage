@@ -1,12 +1,13 @@
 
-import { Component, ElementRef, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, Output, EventEmitter,ViewEncapsulation  } from '@angular/core';
 import { GoogleMapsService } from '../../providers/map/googlemaps.service';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-config-map',
   templateUrl: './config-map.component.html',
-  styleUrls: ['./config-map.component.css']
+  styleUrls: ['./config-map.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class ConfigMapComponent implements OnInit {
   @ViewChild('mapElement', { static: true }) mapElement!: ElementRef;
@@ -14,7 +15,8 @@ export class ConfigMapComponent implements OnInit {
 
   private map: any;
   private drawingManager: any;
-  name: string = '';
+  public name: string = '';
+  private polygonData: any;
 
   constructor(
     private googleMapsService: GoogleMapsService,
@@ -33,6 +35,8 @@ export class ConfigMapComponent implements OnInit {
       this.map = new Map(this.mapElement.nativeElement, {
         center: { lat: -2.189822999999990, lng: -79.88775 },
         zoom: 12,
+        mapTypeControl: false,
+        streetViewControl: false,
       });
 
       this.drawingManager = new google.maps.drawing.DrawingManager({
@@ -52,14 +56,11 @@ export class ConfigMapComponent implements OnInit {
         if (event.type === google.maps.drawing.OverlayType.POLYGON) {
           const polygon = event.overlay as google.maps.Polygon;
 
-          const polygonData = {
+          this.polygonData = {
             name: this.name,
             coordinates: this.getPolygonCoordinates(polygon),
           };
 
-          // Emite el evento para informar al componente padre
-          this.createClicked.emit(polygonData);
-          this.dialogRef.close(polygonData); // Cierra el diálogo después de emitir el evento
         }
       });
     }).catch((error) => {
@@ -69,6 +70,28 @@ export class ConfigMapComponent implements OnInit {
 
   onCancelClick(): void {
     this.dialogRef.close(); // Cierra el diálogo sin enviar datos al padre
+  }
+  onCreateClick(): void {
+
+    if (this.isNameValid() && this.isPolygonDataValid(this.polygonData)) {
+      // Emite el evento para informar al componente padre
+        this.createClicked.emit(this.polygonData);
+        this.dialogRef.close(this.polygonData); // Cierra el diálogo después de emitir el evento
+      } else {
+        console.error("El nombre o polygonData está vacío o no es válido");
+        // Puedes agregar lógica adicional para manejar el caso en que el nombre o polygonData no son válidos
+      }
+
+  }
+  private isNameValid(): boolean {
+    // Verifica si el nombre no es nulo, no es undefined y no está vacío
+    return  (this.name &&this.name.trim()) !== '';
+  }
+  
+  // Agrega una función para verificar si polygonData es válido
+  private isPolygonDataValid(polygonData: any): boolean {
+    // Verifica si polygonData no es nulo, no es undefined y tiene al menos una propiedad
+    return polygonData && Object.keys(polygonData).length > 0;
   }
 
   private getPolygonCoordinates(polygon: google.maps.Polygon): any[] {

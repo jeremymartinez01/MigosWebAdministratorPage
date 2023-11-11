@@ -4,3 +4,7 @@ html, body { height: 100%;
 overflow: hidden;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 */
+/* styles.css o cualquier otro archivo de estilos global */
+::ng-deep .custom-container .mat-dialog-container {
+    border-radius: 20px !important;
+ }
