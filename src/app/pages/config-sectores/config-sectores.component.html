@@ -1,1 +1,14 @@
-<p>config-sectores works!</p>
+
+<div>
+  <button mat-button (click)="openMapDialog()">Abrir Mapa</button>
+</div>
+
+<div *ngIf="mapDataList.length > 0">
+  <h2>Lista de Sectores</h2>
+  <ul>
+    <li *ngFor="let mapData of mapDataList">
+      <strong>{{ mapData.name }}</strong>
+      <p>Coordenadas: {{ mapData.coordinates | json }}</p>
+    </li>
+  </ul>
+</div>
