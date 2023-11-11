@@ -11,7 +11,9 @@ export class NombreVentanaService {
   userName$ = this.userNameSubject.asObservable();
   private idRoleSubject = new BehaviorSubject<number>(0);
   idRole$ = this.idRoleSubject.asObservable();
-  
+  private idMainSubject = new BehaviorSubject<number>(0);
+  idMain$ = this.idRoleSubject.asObservable();
+
   setWindowName(name: string) {
     this.windowNameSubject.next(name);
   }
@@ -20,6 +22,9 @@ export class NombreVentanaService {
     this.userNameSubject.next(userName);
   }
   setIdRole(id:number){
+    this.idRoleSubject.next(id);
+  }
+  setIdMain(id:number){
     this.idRoleSubject.next(id);
   }
 }

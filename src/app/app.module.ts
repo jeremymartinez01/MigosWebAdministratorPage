@@ -41,6 +41,8 @@ import { ConfigBrandeoComponent } from './pages/config-brandeo/config-brandeo.co
 import { ConfigSectoresComponent } from './pages/config-sectores/config-sectores.component';
 import { CampaniaformComponent } from './forms/campaniaform/campaniaform.component';
 import { ConfigMapComponent } from './pages/config-map/config-map.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 export const DATE_FORMATS: MatDateFormats ={
   parse: {dateInput: 'dd-MM-yyyy'},
@@ -97,6 +99,7 @@ export const DATE_FORMATS: MatDateFormats ={
     DateFnsModule,
     MatDialogModule,
     MatSelectModule,
+    MatSnackBarModule,
   ],
   providers: [
     {provide: DateAdapter, useClass: DateFnsAdapter},

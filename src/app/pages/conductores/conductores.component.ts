@@ -7,15 +7,21 @@ import { MatDialog } from '@angular/material/dialog';
 import { UserformComponent } from 'src/app/forms/userform/userform.component';
 import { forkJoin } from 'rxjs';
 import { NombreVentanaService } from '../../providers/nombre-ventana.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-conductores',
   templateUrl: './conductores.component.html',
   styleUrls: ['./conductores.component.css']
 })
 export class ConductoresComponent {
-  constructor(private datac: ClientelistService,private datau: UserlistService, private formulario: MatDialog, private nombreVentanaService: NombreVentanaService){}
+  constructor(private datac: ClientelistService,private datau: UserlistService, 
+    private formulario: MatDialog, private nombreVentanaService: NombreVentanaService,
+    private snackBar:MatSnackBar){}
   clientedata: Cliente[]=[];
   usuariodata: User[]=[];
+  idrole:number =0;
+  idmain: number =0;
   
   /*ngOnInit():void {
     this.datac.getResponse().subscribe((response) => { 
@@ -30,6 +36,12 @@ export class ConductoresComponent {
   }*/
   ngOnInit(): void {
     this.nombreVentanaService.setWindowName('CONDUCTORES');
+    this.nombreVentanaService.idRole$.subscribe((id: number) => {
+      this.idrole = id;
+    });
+    this.nombreVentanaService.idMain$.subscribe((id: number) => {
+      this.idmain = id;
+    });
     forkJoin([
       this.datac.getResponse(),
       this.datau.getResponse()
@@ -57,6 +69,9 @@ export class ConductoresComponent {
       this.clientedata = this.clientedata.filter((cliente) =>
       this.usuariodata.some((user) => user.id_usuario === cliente.id_cliente));
       //this.clientedata = this.clientedata.filter((cliente) => cliente.estado === 2);
+      if(this.idrole === 2){
+        this.clientedata.filter(cliente => cliente.id_empresa === this.idmain);
+      }
     }
   }
   habilitarUsuario(clienteId: number): void {
@@ -66,6 +81,7 @@ export class ConductoresComponent {
       this.datau.updateUser(usuario.id_usuario, usuario).subscribe((response) => {
         //this.usuariodata = (response as User[]);
       });
+      this.openSnackBar('1');
     }
   }
   deshabilitarUsuario(clienteId: number): void {
@@ -75,12 +91,17 @@ export class ConductoresComponent {
       this.datau.updateUser(usuario.id_usuario, usuario).subscribe((response) => {
         //this.usuariodata = (response as User[]);
       });
-
+      this.openSnackBar('0');
     }
   }
   eliminarUsuario(clienteId: number): void {
-    this.deshabilitarUsuario(clienteId);
-  }
+    const usuario = this.usuariodata.find((user) => user.id_usuario === clienteId);
+    if (usuario) {
+      usuario.estado = -1;
+      this.datau.updateUser(usuario.id_usuario, usuario).subscribe((response) => {
+      });
+      this.openSnackBar('-1');
+    }  }
   currentPage: number = 0;
   itemsPerPage: number = 4; 
 
@@ -112,6 +133,11 @@ export class ConductoresComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+  openSnackBar(s:string):void {
+    this.snackBar.open('✅ El estado del conductor ha sido actualizado a ' +s+ ' en la base de datos', 'Listo', {
+      duration: 4500,
     });
   }
 }
