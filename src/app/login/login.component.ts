@@ -37,17 +37,19 @@ export class LoginComponent {
 
   login () {
     const testing = this.userdata.find(u => u.email === this.username && u.contrasena === this.password);
-    if(testing && this.username === 'admin@gmail.com'){
-      this.nombre  = this.getNombre('admin@gmail.com');
+    if(testing && (testing.rol_usuario === 1 || testing.rol_usuario === 2)){
+      this.nombre  = this.getNombre();
       this.nombreVentanaService.setUserName(this.nombre);
+      this.nombreVentanaService.setIdRole(testing.rol_usuario);
       this.onLogin.emit()
+    }else if(testing && !(testing.rol_usuario === 1 || testing.rol_usuario === 2)){
+      this.errorMessage = 'Usted no tiene acceso a este sitio';
     }else{
       this.errorMessage = 'Correo o contraseña incorrectos';
     }
-
   }
-  getNombre(correo:string): string{
-    const userid = this.userdata.find(user => user.email=== 'admin@gmail.com');
+  getNombre(): string{
+    const userid = this.userdata.find(user => user.email === this.username && user.contrasena === this.password);
     const usuario = this.clientdada.find(client => client.id_cliente === userid?.id_usuario);
     return usuario ? usuario.nombre: '';
   }

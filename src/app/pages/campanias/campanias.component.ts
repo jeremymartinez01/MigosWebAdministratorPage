@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NombreVentanaService } from '../../providers/nombre-ventana.service';
-import { Campania } from 'src/app/interfaces/campania';
+import { Campania } from 'src/app/interfaces/campanas';
 import { CampanialistService } from 'src/app/providers/campanialist.service';
 import { Cliente } from 'src/app/interfaces/cliente';
 import { ClientelistService } from 'src/app/providers/clientelist.service';

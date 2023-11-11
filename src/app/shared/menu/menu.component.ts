@@ -8,6 +8,7 @@ import { NombreVentanaService } from '../../providers/nombre-ventana.service';
 })
 export class MenuComponent {
   userName : string;
+  idrole: number=0;
   @Output() onLogout: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private nombreVentanaService: NombreVentanaService) {
@@ -19,6 +20,10 @@ export class MenuComponent {
     this.nombreVentanaService.userName$.subscribe((userName: string) => {
       this.userName = userName;
     });
+    this.nombreVentanaService.idRole$.subscribe((id: number) => {
+      this.idrole = id;
+    });
+    console.log(this.idrole);
   }
   logout(){
     this.onLogout.emit();
