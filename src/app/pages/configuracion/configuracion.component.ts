@@ -20,7 +20,7 @@ export class ConfiguracionComponent {
   }
 
   navegarToSectores(){
-    this.router.navigate(['/config-sectores'])
+    this.router.navigate(['/config-map'])
   }
   navegarToNotificaciones(){
     this.router.navigate(['/config-notificaciones'])
