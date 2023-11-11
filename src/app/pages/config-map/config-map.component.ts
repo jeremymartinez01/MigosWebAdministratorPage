@@ -16,7 +16,7 @@ import { GoogleMapsService } from '../../providers/map/googlemaps.service';
       constructor(private googleMapsService: GoogleMapsService) {}
     
       ngOnInit() {
-        const apiKey = 'AIzaSyDGFJYY5w8PRRkmMWwGSkdtVJ6X57mALF8';
+        const apiKey = 'AIzaSyDon5hzHRwL1069HmRZ7XVNREzQdwxV5zA';
         this.googleMapsService.load(apiKey).then(() => {
           this.initMap();
         });
@@ -25,8 +25,8 @@ import { GoogleMapsService } from '../../providers/map/googlemaps.service';
       initMap(): void {
         this.googleMapsService.importLibrary('maps').then(({ Map }) => {
           this.map = new Map(this.mapElement.nativeElement, {
-            center: { lat: 0, lng: 0 },
-            zoom: 4,
+            center: { lat: -2.189822999999990, lng: -79.88775 },
+            zoom: 12,
           });
     
           this.drawingManager = new google.maps.drawing.DrawingManager({
