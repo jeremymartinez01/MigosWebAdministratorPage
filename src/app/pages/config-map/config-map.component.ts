@@ -17,11 +17,12 @@ export class ConfigMapComponent implements OnInit {
   private drawingManager: any;
   public name: string = '';
   private polygonData: any;
+  
 
   constructor(
     private googleMapsService: GoogleMapsService,
     private dialogRef: MatDialogRef<ConfigMapComponent>
-  ) {}
+  ) { }
 
   ngOnInit() {
     const apiKey = 'AIzaSyDon5hzHRwL1069HmRZ7XVNREzQdwxV5zA'; 
@@ -57,6 +58,7 @@ export class ConfigMapComponent implements OnInit {
           const polygon = event.overlay as google.maps.Polygon;
 
           this.polygonData = {
+            
             name: this.name,
             coordinates: this.getPolygonCoordinates(polygon),
           };
@@ -69,17 +71,17 @@ export class ConfigMapComponent implements OnInit {
   }
 
   onCancelClick(): void {
-    this.dialogRef.close(); // Cierra el diálogo sin enviar datos al padre
+    this.dialogRef.close(); 
   }
   onCreateClick(): void {
 
     if (this.isNameValid() && this.isPolygonDataValid(this.polygonData)) {
       // Emite el evento para informar al componente padre
         this.createClicked.emit(this.polygonData);
-        this.dialogRef.close(this.polygonData); // Cierra el diálogo después de emitir el evento
+        this.dialogRef.close(this.polygonData); 
       } else {
         console.error("El nombre o polygonData está vacío o no es válido");
-        // Puedes agregar lógica adicional para manejar el caso en que el nombre o polygonData no son válidos
+        
       }
 
   }
@@ -88,7 +90,7 @@ export class ConfigMapComponent implements OnInit {
     return  (this.name &&this.name.trim()) !== '';
   }
   
-  // Agrega una función para verificar si polygonData es válido
+  
   private isPolygonDataValid(polygonData: any): boolean {
     // Verifica si polygonData no es nulo, no es undefined y tiene al menos una propiedad
     return polygonData && Object.keys(polygonData).length > 0;
