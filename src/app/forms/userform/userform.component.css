@@ -30,10 +30,10 @@
     flex: 1;
     padding: 0;
   }
-  .custom-dialog-actions {
+  /*.custom-dialog-actions {
     display: flex;
     justify-content: flex-end; 
-  }
+  }*/
   
   .custom-dialog-actions .custom-button {
     border-radius: 50px;
@@ -42,6 +42,16 @@
     background-color: rgb(251, 255, 0); 
     color: #000; 
     border: none;
+  }
+  .error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #errorMessage {
+    color: red;
+    font-size: 12px;
   }
 
   

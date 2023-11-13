@@ -43,6 +43,7 @@ export class LoginComponent {
       this.nombreVentanaService.setIdRole(testing.rol_usuario);
       this.nombreVentanaService.setIdMain(testing.id_usuario);
       this.nombreVentanaService.setUserId(testing.id_usuario);
+      this.nombreVentanaService.setUserQuantity(this.userdata.length);
       this.onLogin.emit()
     }else if(testing && !(testing.rol_usuario === 1 || testing.rol_usuario === 2)){
       this.errorMessage = 'Usted no tiene acceso a este sitio';

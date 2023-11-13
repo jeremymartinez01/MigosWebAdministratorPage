@@ -12,10 +12,11 @@ export class NombreVentanaService {
   private idRoleSubject = new BehaviorSubject<number>(0);
   idRole$ = this.idRoleSubject.asObservable();
   private idMainSubject = new BehaviorSubject<number>(0);
-  idMain$ = this.idRoleSubject.asObservable();
+  idMain$ = this.idMainSubject.asObservable();
   private userIdSubject = new BehaviorSubject<number>(0);
   userId$ = this.userIdSubject.asObservable();
-
+  private userQuantitySubject = new BehaviorSubject<number>(0);
+  userQuantity$ = this.userQuantitySubject.asObservable();
   setUserId(userId: number) {
     this.userIdSubject.next(userId);
   }
@@ -32,5 +33,8 @@ export class NombreVentanaService {
   }
   setIdMain(id:number){
     this.idRoleSubject.next(id);
+  }
+  setUserQuantity(quantity:number){
+    this.userQuantitySubject.next(quantity);
   }
 }
