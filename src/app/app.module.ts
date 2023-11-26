@@ -43,6 +43,7 @@ import { CampaniaformComponent } from './forms/campaniaform/campaniaform.compone
 import { ConfigMapComponent } from './pages/config-map/config-map.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { VisualizeMapComponent } from './pages/visualize-map/visualize-map.component';
+import { DialogConfirmacionComponent } from './forms/dialog-confirmacion/dialog-confirmacion.component';
 
 
 export const DATE_FORMATS: MatDateFormats ={
@@ -79,6 +80,7 @@ export const DATE_FORMATS: MatDateFormats ={
     CampaniaformComponent,
     ConfigMapComponent,
     VisualizeMapComponent,
+    DialogConfirmacionComponent,
 
   ],
   imports: [

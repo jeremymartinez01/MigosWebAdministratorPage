@@ -18,6 +18,7 @@ import {ConfigBrandeoComponent} from './pages/config-brandeo/config-brandeo.comp
 import {ConfigSectoresComponent} from './pages/config-sectores/config-sectores.component';
 import { NotificacionHijoComponent } from './pages/notificacion-hijo/notificacion-hijo.component';
 import {ConfigMapComponent} from './pages/config-map/config-map.component';
+import { DialogConfirmacionComponent } from './forms/dialog-confirmacion/dialog-confirmacion.component';
 
 const routes: Routes = [
   //{path:"login", component: LoginComponent},
@@ -38,6 +39,7 @@ const routes: Routes = [
   {path:"config-sectores", component:ConfigSectoresComponent},
   {path:"notificacion-hijo", component: NotificacionHijoComponent},
   {path:"config-map", component: ConfigMapComponent},
+  {path: "dialog-confirmacion", component:DialogConfirmacionComponent},
   {path:" ",redirectTo:'/login',pathMatch:'full'},
   {path:"**",redirectTo:"/login"}
 ];

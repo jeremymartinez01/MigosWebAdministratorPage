@@ -15,9 +15,9 @@
           <td>{{ sector.estado === 1 ? 'Activo' : 'Inactivo' }}</td>
           <td><span>Ver en el mapa</span></td>
           <td>
-            <button (click)="habilitarSector(sector.id_sector)" class="habilitar-button">Habilitar</button>
-            <button (click)="deshabilitarSector(sector.id_sector)" class="deshabilitar-button">Deshabilitar</button>
-            <button (click)="eliminarSector(sector.id_sector)" class="eliminar-button">Eliminar</button>
+            <button  (click)="abrirDialogoConfirmacion('habilitar', sector.id_sector)" class="habilitar-button">Habilitar</button>
+            <button  (click)="abrirDialogoConfirmacion('deshabilitar', sector.id_sector)" class="deshabilitar-button">Deshabilitar</button>
+            <button  (click)="abrirDialogoConfirmacion('eliminar', sector.id_sector)" class="eliminar-button">Eliminar</button>
           </td>
         </tr>
       </tbody>

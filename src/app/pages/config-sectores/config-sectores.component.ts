@@ -6,6 +6,7 @@ import { SectorService } from 'src/app/providers/sector.service';
 import { Sector} from 'src/app/interfaces/sector';
 import { NombreVentanaService } from 'src/app/providers/nombre-ventana.service';
 import { SectorGet } from 'src/app/interfaces/sector-get';
+import { DialogConfirmacionComponent } from 'src/app/forms/dialog-confirmacion/dialog-confirmacion.component';
 @Component({
   selector: 'app-config-sectores',
   templateUrl: './config-sectores.component.html',
@@ -18,6 +19,7 @@ export class ConfigSectoresComponent implements OnInit {
   usuarioId :number = 11;
   constructor(private dialog: MatDialog,private sectorService: SectorService, private nombreVentanaService: NombreVentanaService) {
      this.id_empresa=11
+     
   }
 
   ngOnInit() {
@@ -61,19 +63,71 @@ export class ConfigSectoresComponent implements OnInit {
       
         this.sectorService.crearSector(nuevoSector).subscribe(
           (response) => {
-            console.log('Sector creado con éxito:', response);
-            
+            console.log('Sector creado con éxito:', response); 
           },
           (error) => {
-
             console.error('Error al crear el sector:', error);
-            
           }
         );
       }
     });
   }
-  habilitarSector(id:number):void{}
-  deshabilitarSector(id:number):void{}
-  eliminarSector(id: number):void{}
+
+  abrirDialogoConfirmacion(accion: string, id: number): void {
+    const dialogRef = this.dialog.open(DialogConfirmacionComponent, {
+      width: '300px',
+      data: { accion: accion }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        if (accion === 'habilitar') {
+          this.habilitarSector(id);
+        } else if (accion === 'deshabilitar') {
+          this.deshabilitarSector(id);
+        } else if (accion === 'eliminar') {
+          this.cambiarEstadoEliminar(id);
+        }
+      }
+    });
+  }
+  habilitarSector(id: number): void {
+    this.sectorService.cambiarEstado(id, 1)
+      .subscribe(
+        response => {
+          // Maneja la respuesta del servidor aquí
+          console.log('Sector habilitado con éxito:', response);
+          // Puedes realizar otras acciones después de la habilitación si es necesario
+        },
+        error => {
+          // Maneja los errores aquí
+          console.error('Error al habilitar el sector:', error);
+        }
+      );
+  }
+  
+  deshabilitarSector(id: number): void {
+    this.sectorService.cambiarEstado(id, 2)
+      .subscribe(
+        response => {
+          console.log('Sector deshabilitado con éxito:', response);
+        },
+        error => {
+          console.error('Error al deshabilitar el sector:', error);
+        }
+      );
+  }
+  
+  cambiarEstadoEliminar(id: number): void {
+    this.sectorService.cambiarEstado(id, 3)
+      .subscribe(
+        response => {
+          console.log('Sector cambiado de estado a Eliminar con éxito:', response);
+        },
+        error => {
+          console.error('Error al cambiar el estado del sector a Eliminar:', error);
+        }
+      );
+  }
+  
 }
