@@ -42,6 +42,7 @@ import { ConfigSectoresComponent } from './pages/config-sectores/config-sectores
 import { CampaniaformComponent } from './forms/campaniaform/campaniaform.component';
 import { ConfigMapComponent } from './pages/config-map/config-map.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { VisualizeMapComponent } from './pages/visualize-map/visualize-map.component';
 
 
 export const DATE_FORMATS: MatDateFormats ={
@@ -77,6 +78,7 @@ export const DATE_FORMATS: MatDateFormats ={
     ConfigSectoresComponent,
     CampaniaformComponent,
     ConfigMapComponent,
+    VisualizeMapComponent,
 
   ],
   imports: [

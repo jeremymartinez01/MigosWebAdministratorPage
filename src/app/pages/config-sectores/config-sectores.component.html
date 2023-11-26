@@ -1,14 +1,32 @@
 
-<div>
-  <button mat-button (click)="openMapDialog()">Abrir Mapa</button>
-</div>
+<div class="tabla-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Estado</th>
+          <th>Ubicación</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sector of sectores">
+          <td>{{ sector.nombre }}</td>
+          <td>{{ sector.estado === 1 ? 'Activo' : 'Inactivo' }}</td>
+          <td><span>Ver en el mapa</span></td>
+          <td>
+            <button (click)="habilitarSector(sector.id_sector)" class="habilitar-button">Habilitar</button>
+            <button (click)="deshabilitarSector(sector.id_sector)" class="deshabilitar-button">Deshabilitar</button>
+            <button (click)="eliminarSector(sector.id_sector)" class="eliminar-button">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+      
+    </table>
 
-<div *ngIf="mapDataList.length > 0">
-  <h2>Lista de Sectores</h2>
-  <ul>
-    <li *ngFor="let mapData of mapDataList">
-      <strong>{{ mapData.name }}</strong>
-      <p>Coordenadas: {{ mapData.coordinates | json }}</p>
-    </li>
-  </ul>
+  <div class="fila-boton">
+    <button class="boton-flotante" (click)="openMapDialog()">
+    <span class="icono">+</span>
+    </button>
+  </div>
 </div>

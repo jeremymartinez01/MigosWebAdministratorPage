@@ -5,6 +5,7 @@ import { ConfigMapComponent } from '../config-map/config-map.component';
 import { SectorService } from 'src/app/providers/sector.service';
 import { Sector} from 'src/app/interfaces/sector';
 import { NombreVentanaService } from 'src/app/providers/nombre-ventana.service';
+import { SectorGet } from 'src/app/interfaces/sector-get';
 @Component({
   selector: 'app-config-sectores',
   templateUrl: './config-sectores.component.html',
@@ -13,15 +14,24 @@ import { NombreVentanaService } from 'src/app/providers/nombre-ventana.service';
 export class ConfigSectoresComponent implements OnInit {
   id_empresa:number
   mapDataList: any[] = [];
-
+  sectores :SectorGet[]=[];
+  usuarioId :number = 11;
   constructor(private dialog: MatDialog,private sectorService: SectorService, private nombreVentanaService: NombreVentanaService) {
-     this.id_empresa=0
+     this.id_empresa=11
   }
 
   ngOnInit() {
     this.nombreVentanaService.idMain$.subscribe((id: number) => {
       this.id_empresa=id
     });
+
+    this.sectorService.obtenerSector(this.usuarioId).subscribe(data => {
+      this.sectores = data;
+      },
+      error => {
+        console.error('Error al obtener la lista de sectores', error);
+      }
+    );
   }
 
   openMapDialog(): void {
@@ -40,7 +50,7 @@ export class ConfigSectoresComponent implements OnInit {
         let fecha_creacion = new Date();
         let fecha_formateada = fecha_creacion.toISOString().split('T')[0];
         const nuevoSector: Sector = {
-          id_empresa: 2,
+          id_empresa: 1,
           nombre: result.name,
           fecha_creacion: fecha_formateada,
           cerco_virtual: result.coordinates,
@@ -55,6 +65,7 @@ export class ConfigSectoresComponent implements OnInit {
             
           },
           (error) => {
+
             console.error('Error al crear el sector:', error);
             
           }
@@ -62,4 +73,7 @@ export class ConfigSectoresComponent implements OnInit {
       }
     });
   }
+  habilitarSector(id:number):void{}
+  deshabilitarSector(id:number):void{}
+  eliminarSector(id: number):void{}
 }
