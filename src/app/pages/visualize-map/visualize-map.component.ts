@@ -1,6 +1,9 @@
-import { Component, ElementRef, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+// visualize-map.component.ts
+
+import { Component, ElementRef, Inject, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { GoogleMapsService } from '../../providers/map/googlemaps.service';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Sector } from '../../interfaces/sector';
 
 @Component({
   selector: 'app-visualize-map',
@@ -10,17 +13,22 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class VisualizeMapComponent implements OnInit {
   @ViewChild('mapElement', { static: true }) mapElement!: ElementRef;
-  @Input() sectorData: any; // Input para recibir los datos del sector
   private map: any;
   private polygon: any;
+  sector!: Sector;
 
   constructor(
     private googleMapsService: GoogleMapsService,
-    private dialogRef: MatDialogRef<VisualizeMapComponent>
-  ) {}
+    private dialogRef: MatDialogRef<VisualizeMapComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
+    if (data && data.sector) {
+      this.sector = data.sector;
+    }
+  }
 
   ngOnInit() {
-    const apiKey = 'AIzaSyDon5hzHRwL1069HmRZ7XVNREzQdwxV5zA';
+    const apiKey = 'AIzaSyDon5hzHRwL1069HmRZ7XVNREzQdwxV5zA'; // Agrega tu clave de API de Google Maps aquí
     this.googleMapsService.load(apiKey).then(() => {
       this.initMap();
     });
@@ -36,8 +44,8 @@ export class VisualizeMapComponent implements OnInit {
       });
 
       // Dibujar el polígono si hay coordenadas disponibles
-      if (this.sectorData && this.sectorData.cerco_virtual && this.sectorData.cerco_virtual.length > 0) {
-        const coordinates = this.sectorData.cerco_virtual.map((coord: { lat: any; lng: any; }) => ({
+      if (this.sector && this.sector.cerco_virtual && this.sector.cerco_virtual.length > 0) {
+        const coordinates = this.sector.cerco_virtual.map((coord: { lat: any; lng: any; }) => ({
           lat: coord.lat,
           lng: coord.lng,
         }));
@@ -52,18 +60,18 @@ export class VisualizeMapComponent implements OnInit {
   drawPolygon(coordinates: { lat: number; lng: number }[]): void {
     this.polygon = new google.maps.Polygon({
       paths: coordinates,
-      editable: false, // No editable
-      draggable: false, // No se puede arrastrar
+      editable: false,
+      draggable: false,
       fillColor: '#FF0000',
       fillOpacity: 0.35,
       strokeWeight: 2,
       strokeColor: '#FF0000',
     });
-  
+
     this.polygon.setMap(this.map);
   }
 
   onCancelClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(); // Cierra el diálogo cuando se hace clic en "CERRAR"
   }
 }

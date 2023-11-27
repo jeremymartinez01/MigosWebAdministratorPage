@@ -1,19 +1,20 @@
+<!-- visualize-map.component.html -->
+
 <div class="dialog-content">
-    <h1 mat-dialog-title class="custom-title">Visualizar Sector</h1>
-  
-    <div class="label-container">
-      <div class="map-input">
-        <label for="NameInput">Nombre: </label>
-        <span>{{ sectorData?.nombre }}</span>
-      </div>
-  
-      <label for="ubicacionInput">Ubicación: </label>
+  <h1 mat-dialog-title class="custom-title">Visualizar Sector</h1>
+
+  <div class="label-container">
+    <div class="map-input">
+      <label for="NameInput">Nombre: </label>
+      <span>{{ sector?.nombre }}</span>
     </div>
-  
-    <div #mapElement class="custom-map"></div>
-  
-    <div class="botones-mapa">
-      <button class="custom-button" id="button-1" (click)="onCancelClick()">CERRAR</button>
-    </div>
+
+    <label for="ubicacionInput">Ubicación: </label>
   </div>
-  
+
+  <div #mapElement class="custom-map"></div>
+
+  <div class="botones-mapa">
+    <button class="custom-button" id="button-1" (click)="onCancelClick()">CERRAR</button>
+  </div>
+</div>

@@ -7,6 +7,7 @@ import { Sector} from 'src/app/interfaces/sector';
 import { NombreVentanaService } from 'src/app/providers/nombre-ventana.service';
 import { SectorGet } from 'src/app/interfaces/sector-get';
 import { DialogConfirmacionComponent } from 'src/app/forms/dialog-confirmacion/dialog-confirmacion.component';
+import { VisualizeMapComponent } from '../visualize-map/visualize-map.component';
 @Component({
   selector: 'app-config-sectores',
   templateUrl: './config-sectores.component.html',
@@ -14,7 +15,6 @@ import { DialogConfirmacionComponent } from 'src/app/forms/dialog-confirmacion/d
 })
 export class ConfigSectoresComponent implements OnInit {
   id_empresa:number
-  mapDataList: any[] = [];
   sectores :SectorGet[]=[];
   usuarioId :number = 11;
   constructor(private dialog: MatDialog,private sectorService: SectorService, private nombreVentanaService: NombreVentanaService) {
@@ -45,9 +45,6 @@ export class ConfigSectoresComponent implements OnInit {
     
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {
-        // Agrega los datos a la lista
-        this.mapDataList.push(result);
-  
         // Crea un nuevo sector con los datos del mapa
         let fecha_creacion = new Date();
         let fecha_formateada = fecha_creacion.toISOString().split('T')[0];
@@ -73,6 +70,20 @@ export class ConfigSectoresComponent implements OnInit {
     });
   }
 
+//SECCION VISUALIZE MAPA
+  openVisualizeMapDialog(sector: Sector): void {
+    const dialogRef = this.dialog.open(VisualizeMapComponent, {
+      width: '550px',
+      panelClass: 'custom-container',
+      data: { sector },
+    });
+
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('El diálogo se cerró con resultado:', result);
+    });
+  }
+  //SECCION VISUALIZE MAPA
   abrirDialogoConfirmacion(accion: string, id: number): void {
     const dialogRef = this.dialog.open(DialogConfirmacionComponent, {
       width: '300px',
@@ -95,12 +106,9 @@ export class ConfigSectoresComponent implements OnInit {
     this.sectorService.cambiarEstado(id, 1)
       .subscribe(
         response => {
-          // Maneja la respuesta del servidor aquí
           console.log('Sector habilitado con éxito:', response);
-          // Puedes realizar otras acciones después de la habilitación si es necesario
         },
         error => {
-          // Maneja los errores aquí
           console.error('Error al habilitar el sector:', error);
         }
       );

@@ -13,7 +13,7 @@
         <tr *ngFor="let sector of sectores">
           <td>{{ sector.nombre }}</td>
           <td>{{ sector.estado === 1 ? 'Activo' : 'Inactivo' }}</td>
-          <td><span>Ver en el mapa</span></td>
+          <td><span (click)="openVisualizeMapDialog(sector)">Ver en el mapa</span></td>
           <td>
             <button  (click)="abrirDialogoConfirmacion('habilitar', sector.id_sector)" class="habilitar-button">Habilitar</button>
             <button  (click)="abrirDialogoConfirmacion('deshabilitar', sector.id_sector)" class="deshabilitar-button">Deshabilitar</button>
