@@ -28,7 +28,7 @@ export class VisualizeMapComponent implements OnInit {
   }
 
   ngOnInit() {
-    const apiKey = 'AIzaSyDon5hzHRwL1069HmRZ7XVNREzQdwxV5zA'; // Agrega tu clave de API de Google Maps aquí
+    const apiKey = 'AIzaSyDon5hzHRwL1069HmRZ7XVNREzQdwxV5zA';
     this.googleMapsService.load(apiKey).then(() => {
       this.initMap();
     });
@@ -72,6 +72,6 @@ export class VisualizeMapComponent implements OnInit {
   }
 
   onCancelClick(): void {
-    this.dialogRef.close(); // Cierra el diálogo cuando se hace clic en "CERRAR"
+    this.dialogRef.close(); 
   }
 }

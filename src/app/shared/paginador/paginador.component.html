@@ -1,0 +1,21 @@
+<nav class="paginador">
+    <div class="paginador-container">
+      <div class="paginador-text">
+        Mostrando {{ startingItem }} a {{ endingItem }} de {{ totalItems }} entrada(s).
+      </div>
+      <ul class="pagination">
+        <li class="page-item" [ngClass]="{'disabled': currentPage === 1}">
+          <a class="page-link" (click)="prevPage()">Anterior</a>
+        </li>
+        <ng-container *ngIf="totalPages > 0">
+          <li class="page-item">
+            <a class="page-link" (click)="selectPage(currentPage)">{{ currentPage }}</a>
+          </li>
+        </ng-container>
+        <li class="page-item" [ngClass]="{'disabled': currentPage === totalPages}">
+          <a class="page-link" (click)="nextPage()">Siguiente</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  

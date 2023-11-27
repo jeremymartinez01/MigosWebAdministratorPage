@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfigMapComponent } from '../config-map/config-map.component';
 import { SectorService } from 'src/app/providers/sector.service';
@@ -8,18 +8,29 @@ import { NombreVentanaService } from 'src/app/providers/nombre-ventana.service';
 import { SectorGet } from 'src/app/interfaces/sector-get';
 import { DialogConfirmacionComponent } from 'src/app/forms/dialog-confirmacion/dialog-confirmacion.component';
 import { VisualizeMapComponent } from '../visualize-map/visualize-map.component';
+import { PaginadorComponent } from 'src/app/shared/paginador/paginador.component';
 @Component({
   selector: 'app-config-sectores',
   templateUrl: './config-sectores.component.html',
   styleUrls: ['./config-sectores.component.css']
 })
 export class ConfigSectoresComponent implements OnInit {
+  @ViewChild(PaginadorComponent, { static: true }) paginador:PaginadorComponent = new PaginadorComponent();
   id_empresa:number
   sectores :SectorGet[]=[];
   usuarioId :number = 11;
+
+  //PAGINADOR
+ 
+  SectoresEnPagina: SectorGet[] = [];
+  totalItems: number = 0; // Inicializa totalItems en 0
+  currentPage: number = 1;
+  pageSize: number = 5;
+  maxPages: number = 5;
+  //PAGINADOR
+
   constructor(private dialog: MatDialog,private sectorService: SectorService, private nombreVentanaService: NombreVentanaService) {
      this.id_empresa=11
-     
   }
 
   ngOnInit() {
@@ -29,13 +40,27 @@ export class ConfigSectoresComponent implements OnInit {
 
     this.sectorService.obtenerSector(this.usuarioId).subscribe(data => {
       this.sectores = data;
+      this.onPageChange(this.currentPage);
       },
       error => {
         console.error('Error al obtener la lista de sectores', error);
       }
     );
-  }
 
+    //PAGINADOR
+    // Configura el paginador con la cantidad total de elementos
+    this.totalItems = this.sectores.length;
+    this.paginador.totalItems = this.totalItems;
+    this.paginador.currentPage = this.currentPage;
+    this.paginador.pageSize = this.pageSize;
+    this.paginador.maxPages = this.maxPages;
+    this.paginador.ngOnInit();
+    this.onPageChange(this.currentPage);
+    //PAGINADOR
+  }
+  
+
+  ///MAP
   openMapDialog(): void {
     const dialogRef = this.dialog.open(ConfigMapComponent, {
       width: '550px',
@@ -84,6 +109,8 @@ export class ConfigSectoresComponent implements OnInit {
     });
   }
   //SECCION VISUALIZE MAPA
+
+  ///BOTONES
   abrirDialogoConfirmacion(accion: string, id: number): void {
     const dialogRef = this.dialog.open(DialogConfirmacionComponent, {
       width: '300px',
@@ -138,4 +165,14 @@ export class ConfigSectoresComponent implements OnInit {
       );
   }
   
+  //PAGINADOR
+  onPageChange(page: number) {
+    this.currentPage = page;
+    const startIndex = (page - 1) * this.pageSize;
+    const endIndex = Math.min(startIndex + this.pageSize, this.totalItems);
+    this.SectoresEnPagina = this.sectores.slice(startIndex, endIndex);
+    // Notifica al paginador sobre el cambio de página
+    this.paginador.selectPage(page);
+  }
+  //PAGINADOR
 }

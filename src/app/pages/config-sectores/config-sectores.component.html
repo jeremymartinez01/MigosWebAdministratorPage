@@ -30,3 +30,10 @@
     </button>
   </div>
 </div>
+<app-paginador
+    [totalItems]="totalItems"
+    [currentPage]="currentPage"
+    [pageSize]="pageSize"
+    [maxPages]="maxPages"
+    (pageChange)="onPageChange($event)"
+  ></app-paginador>

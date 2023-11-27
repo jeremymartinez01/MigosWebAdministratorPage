@@ -1,0 +1,56 @@
+/* paginador.component.css */
+.paginador {
+    width: 100%;
+    background-color: #fff; /* Fondo blanco */
+  }
+  
+  .paginador-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Alinear contenido en ambos extremos */
+    padding: 1rem; /* Añadir espacio alrededor del contenido */
+  }
+  
+  .paginador-text {
+    margin-right: auto;
+  }
+  
+  .pagination {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .page-item {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .page-link {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    background-color: #f8f9fa; /* Fondo gris claro */
+    border: 1px solid #dee2e6; /* Borde gris */
+    border-radius: 0.25rem; /* Bordes redondeados */
+  }
+  
+  .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+  }
+  
+  .page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+  
+  .page-link:hover {
+    text-decoration: none;
+  }
+  
+  
