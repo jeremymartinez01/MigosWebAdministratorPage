@@ -9,7 +9,7 @@
         </li>
         <ng-container *ngIf="totalPages > 0">
           <li class="page-item">
-            <a class="page-link" (click)="selectPage(currentPage)">{{ currentPage }}</a>
+            <a class="page-link-index" (click)="selectPage(currentPage)">{{ currentPage }}</a>
           </li>
         </ng-container>
         <li class="page-item" [ngClass]="{'disabled': currentPage === totalPages}">

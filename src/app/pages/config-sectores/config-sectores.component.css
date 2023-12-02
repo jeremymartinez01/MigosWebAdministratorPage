@@ -71,13 +71,13 @@ span:hover {
   
   .boton-flotante {
     position: absolute;
-    bottom: -10px;
-    right: -10px;
+    bottom: 6px;
+    right: 6px;
     background-color:#C6A253;
     color: #fff;
     border: none;
     border-radius: 50%;
-    padding: 35px; /* Tamaño del contenedor */
+    padding: 25px; /* Tamaño del contenedor */
     cursor: pointer;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s; /* Agregado para una transición suave */
@@ -86,7 +86,7 @@ span:hover {
   }
   
   .icono {
-    font-size: 80px;
+    font-size: 50px;
     display: flex;
     border-radius: 50%;
     width: 20px;
@@ -101,3 +101,4 @@ span:hover {
   .boton-flotante:hover {
     background-color:#f1ce82; /* Cambia el color de fondo al pasar el ratón */
   }
+  
