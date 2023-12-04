@@ -9,14 +9,20 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./config-map.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
+
+
+
 export class ConfigMapComponent implements OnInit {
   @ViewChild('mapElement', { static: true }) mapElement!: ElementRef;
   @Output() createClicked = new EventEmitter<any>();
 
+  
   private map: any;
   private drawingManager: any;
   public name: string = '';
-  private polygonData: any;
+  private polygonData: any[] = [];
+  private polygonsData: any;
+  
   
 
   constructor(
@@ -56,14 +62,10 @@ export class ConfigMapComponent implements OnInit {
       google.maps.event.addListener(this.drawingManager, 'overlaycomplete', (event: google.maps.drawing.OverlayCompleteEvent) => {
         if (event.type === google.maps.drawing.OverlayType.POLYGON) {
           const polygon = event.overlay as google.maps.Polygon;
-
-          this.polygonData = {
-            
-            name: this.name,
-            coordinates: this.getPolygonCoordinates(polygon),
-          };
-
+          this.polygonData.push(this.getPolygonCoordinates(polygon));
+          
         }
+        
       });
     }).catch((error) => {
       console.error('Error loading Google Maps library:', error);
@@ -74,11 +76,16 @@ export class ConfigMapComponent implements OnInit {
     this.dialogRef.close(); 
   }
   onCreateClick(): void {
-
+        
     if (this.isNameValid() && this.isPolygonDataValid(this.polygonData)) {
       // Emite el evento para informar al componente padre
-        this.createClicked.emit(this.polygonData);
-        this.dialogRef.close(this.polygonData); 
+        this.createClicked.emit(this.polygonsData= {
+          name: this.name,
+          coordinates: this.polygonData,
+        });
+        
+        this.dialogRef.close(this.polygonsData); 
+        console.log(this.polygonsData);
       } else {
         console.error("El nombre o polygonData está vacío o no es válido");
         

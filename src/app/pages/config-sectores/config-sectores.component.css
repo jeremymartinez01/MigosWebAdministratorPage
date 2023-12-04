@@ -80,9 +80,9 @@ span:hover {
     padding: 25px; /* Tamaño del contenedor */
     cursor: pointer;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s; /* Agregado para una transición suave */
+    transition: background-color 0.3s; 
     text-align: center;
-    overflow: hidden; /* Añadido para asegurar que el contenido circular no se desborde */
+    overflow: hidden; 
   }
   
   .icono {
@@ -99,6 +99,41 @@ span:hover {
   }
   
   .boton-flotante:hover {
-    background-color:#f1ce82; /* Cambia el color de fondo al pasar el ratón */
+    background-color:#f1ce82; 
   }
+
+  .export-data-bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: white; /* Fondo blanco */
+    width: 97%; /* Anchura del 97% */
+    padding: 5px; /* Añadir espacio interno para mejorar la apariencia */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+    margin-top: 15px;
+    height: 65px;
+  }
+  
+  .button-container {
+    margin-top: 10px;
+    margin-left: auto; /* Mueve el contenedor de botones hacia la esquina derecha */
+    align-self: flex-end; /* Fija el contenedor de botones en la parte inferior */
+    
+  }
+  
+  .button-pdf, .button-excel {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .button-pdf img, .button-excel img {
+    margin-right: 5px;
+  }
+  
+  /* Puedes ajustar la anchura máxima de la imagen según tus necesidades */
+  .button-pdf img, .button-excel img {
+    max-width: 24px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    height: auto;
+  }  
   

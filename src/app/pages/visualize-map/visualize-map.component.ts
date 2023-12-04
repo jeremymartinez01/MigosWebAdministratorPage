@@ -38,22 +38,28 @@ export class VisualizeMapComponent implements OnInit {
     this.googleMapsService.importLibrary('maps').then(({ Map }) => {
       this.map = new Map(this.mapElement.nativeElement, {
         center: { lat: -2.189822999999990, lng: -79.88775 },
-        zoom: 12,
+        zoom: 13,
         mapTypeControl: false,
         streetViewControl: false,
       });
 
       // Dibujar el polígono si hay coordenadas disponibles
       if (this.sector && this.sector.cerco_virtual && this.sector.cerco_virtual.length > 0) {
-        const coordinates = this.sector.cerco_virtual.map((coord: { lat: any; lng: any; }) => ({
-          lat: coord.lat,
-          lng: coord.lng,
-        }));
-
-        this.drawPolygon(coordinates);
+        this.drawPolygons(this.sector.cerco_virtual);
       }
     }).catch((error) => {
       console.error('Error loading Google Maps library:', error);
+    });
+  }
+  
+  drawPolygons(polygons: any[]): void {
+    polygons.forEach(polygonCoords => {
+      const coordinates = polygonCoords.map((coord: { lat: any; lng: any; }) => ({
+        lat: coord.lat,
+        lng: coord.lng,
+      }));
+  
+      this.drawPolygon(coordinates);
     });
   }
 
