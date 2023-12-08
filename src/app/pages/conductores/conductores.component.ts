@@ -23,17 +23,6 @@ export class ConductoresComponent {
   idrole:number =0;
   idmain: number =0;
   
-  /*ngOnInit():void {
-    this.datac.getResponse().subscribe((response) => { 
-      this.clientedata = (response as Cliente[]);
-      //this.loadFilteredClients(); 
-    });
-    this.datau.getResponse().subscribe((response)=> {
-      this.usuariodata = (response as User[]);
-      //this.loadFilteredClients();
-      //this.loadFilteredUsers();
-    });
-  }*/
   ngOnInit(): void {
     this.nombreVentanaService.setWindowName('CONDUCTORES');
     this.nombreVentanaService.idRole$.subscribe((id: number) => {
@@ -59,11 +48,7 @@ export class ConductoresComponent {
     const usuario = this.usuariodata.find(user => user.id_usuario === clienteId);
     return usuario ? usuario.email : '';
   }
-  /*loadFilteredUsers(): void {
-    if (this.usuariodata.length > 0) {
-      this.usuariodata = this.usuariodata.filter((user) => user.estado === 1);
-    }
-  }*/
+  
   loadFilteredClients(): void {
     if (this.clientedata.length > 0) {
       this.clientedata = this.clientedata.filter((cliente) =>
