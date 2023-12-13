@@ -32,8 +32,8 @@
       <tr *ngFor="let cliente of getPagedClients()">
         <td>{{ cliente.nombre }}</td>
         <td>{{ cliente.cedula_cliente }}</td>
-        <td>{{ getUsuarioFechaCreacion(cliente.id_cliente) }}</td>
-        <td>{{ getUsuarioEmail(cliente.id_cliente) }}</td>
+        <td>{{ getUsuarioFechaCreacion(cliente.id_usuario) }}</td>
+        <td>{{ getUsuarioEmail(cliente.id_usuario) }}</td>
         <td>
           <button (click)="habilitarUsuario(cliente.id_cliente)" class="habilitar-button">Habilitar</button>
           <button (click)="deshabilitarUsuario(cliente.id_cliente)" class="deshabilitar-button">Deshabilitar</button>

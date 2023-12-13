@@ -3,8 +3,11 @@ import { NombreVentanaService } from '../../providers/nombre-ventana.service';
 import { EmpresalistService } from 'src/app/providers/empresalist.service';
 import { Empresa } from 'src/app/interfaces/empresa';
 import { MatDialog } from '@angular/material/dialog';
-import { UserformComponent } from 'src/app/forms/userform/userform.component';
+import { EmpresaformComponent } from 'src/app/forms/empresaform/empresaform.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { forkJoin } from 'rxjs';
+import { UserlistService } from 'src/app/providers/userlist.service';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-empresas',
@@ -14,17 +17,25 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class EmpresasComponent {
 
   constructor(private nombreVentanaService: NombreVentanaService, private datae: EmpresalistService,
-    private formulario: MatDialog,private snackBar:MatSnackBar) {}
+    private formulario: MatDialog,private snackBar:MatSnackBar, private datau:UserlistService) {}
 
   empresasdata: Empresa[]= [];
+  datausuario: User[] = [];
   currentPage: number = 0;
   itemsPerPage: number = 4; 
   idrole:number =0;
   idmain: number =0;
   ngOnInit(){
     this.nombreVentanaService.setWindowName('EMPRESAS');
-    this.datae.getResponse().subscribe((response) => {
+    /*this.datae.getResponse().subscribe((response) => {
       this.empresasdata = response as Empresa[];
+    });*/
+    forkJoin([
+      this.datae.getResponse(),
+      this.datau.getResponse()
+    ]).subscribe((responses) => {
+      this.empresasdata = responses[0] as Empresa[];
+      this.datausuario = responses[1] as User[];
     });
   }
   
@@ -81,7 +92,10 @@ export class EmpresasComponent {
     return this.empresasdata.slice(startIndex, endIndex);
   }
   openFormDialog(): void {
-    const dialogRef = this.formulario.open(UserformComponent, {
+    this.nombreVentanaService.setUserQuantity(this.datausuario.reduce((maxIdUsuario, usuarioActual) => {
+      return usuarioActual.id_usuario > maxIdUsuario ? usuarioActual.id_usuario : maxIdUsuario;
+    }, this.datausuario[0].id_usuario));
+    const dialogRef = this.formulario.open(EmpresaformComponent, {
       width: '450px',
       height:'600px',
     });

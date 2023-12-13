@@ -1,35 +1,30 @@
 import { Component } from '@angular/core';
-import { EmpresalistService } from 'src/app/providers/empresalist.service';
-import { Empresa } from 'src/app/interfaces/empresa';
-import { HttpmailService } from 'src/app/providers/httpmail.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { UserlistService } from 'src/app/providers/userlist.service';
 import { NombreVentanaService } from 'src/app/providers/nombre-ventana.service';
 import { User } from 'src/app/interfaces/user';
-import { ClientelistService } from 'src/app/providers/clientelist.service';
-import { Cliente } from 'src/app/interfaces/cliente';
+import { UserlistService } from 'src/app/providers/userlist.service';
+import { HttpmailService } from 'src/app/providers/httpmail.service';
+import { Empresa } from 'src/app/interfaces/empresa';
 import { switchMap } from 'rxjs/operators';
-import { UniqueSelectionDispatcher } from '@angular/cdk/collections';
+import { EmpresalistService } from 'src/app/providers/empresalist.service';
+
 
 @Component({
-  selector: 'app-userform',
-  templateUrl: './userform.component.html',
-  styleUrls: ['./userform.component.css']
+  selector: 'app-empresaform',
+  templateUrl: './empresaform.component.html',
+  styleUrls: ['./empresaform.component.css']
 })
-export class UserformComponent {
-  constructor(private datae:EmpresalistService , private correohttp: HttpmailService,
-    private referencia: MatDialogRef<UserformComponent>, private snackBar: MatSnackBar,
-    private usuarioservice:UserlistService, private usersq: NombreVentanaService,
-    private clienteservice:ClientelistService){}
+export class EmpresaformComponent {
+  constructor(private referencia: MatDialogRef<EmpresaformComponent>, private snackBar: MatSnackBar,
+    private usersq: NombreVentanaService,private usuarioservice: UserlistService,private correohttp: HttpmailService,
+    private eservice:EmpresalistService){}
   cedula: string= '';
   errorMessageCedula: string='';
   nombres: string='';
   errorMessageNombre: string='';
-  apellidos: string='';
-  errorMessageApellido: string='';
-  fechanacimiento: ScrollSetting='';
-  errorMessageFecha: string='';
+  sexo: string='';
+  errorMessageSexo: string='';
   email: string='';
   errorMessageEmail: string='';
   contrasenia: string='';
@@ -38,14 +33,12 @@ export class UserformComponent {
   errorMessageCContrasenia: string='';
   telefono: string='';
   errorMessageTelefono: string='';
-  sexo: string='';
-  errorMessageSexo: string='';
-  empresa: string='';
-  errorMessageEmpresa: string='';
+  representante:string='';
+  errorMessageRepresentante: string='';
   camposllenos: boolean=false;
   errorMessageGeneral: string='';
   showPassword: boolean = false;
-  empresadata: Empresa[]=[];
+  //empresadata: Empresa[]=[];
   asunto = 'Bienvenido a nuestra aplicación';
   mensaje = 'Estimado usuario, gracias por registrarte en nuestra aplicación.';
   data ={};
@@ -53,9 +46,9 @@ export class UserformComponent {
 
 
   ngOnInit(): void {
-      this.datae.getResponse().subscribe((response) => {
+    /*  this.datae.getResponse().subscribe((response) => {
       this.empresadata = response as Empresa[];
-    });
+    });*/
   }
   close(): void {
     this.referencia.close();
@@ -73,40 +66,39 @@ export class UserformComponent {
         fecha_creacion: new Date().toISOString().split('T')[0],
         fecha_modificacion: new Date().toISOString().split('T')[0],
         estado: 1,
-        rol_usuario: 2,
+        rol_usuario: this.determineSex(this.sexo),
       };
-      const cnuevo:any ={
-        id_usuario: this.quser+1,
-        cedula_cliente: this.cedula,
+      
+      const enueva:any ={
+        ruc: this.cedula,
         nombre: this.nombres,
-        apellido: this.apellidos,
-        fecha_nacimiento: new Date(this.fechanacimiento).toISOString().split('T')[0],
-        email: this.email,
-        sexo: this.determineSex(this.sexo),
+        descripcion: this.sexo,
+        mail_contacto: this.email,
         telefono: this.telefono,
+        fecha_creacion: new Date().toISOString().split('T')[0],
+        fecha_modificacion: new Date().toISOString().split('T')[0],
         estado: 1,
-        id_empresa: this.empresaIdbyName(this.empresa),
+        id_usuario: this.quser+1,
       }
-      /*
-      this.usuarioservice.createUser(unuevo).subscribe((response)=>{
+      /*this.usuarioservice.createUser(unuevo).subscribe((response)=>{
         console.log(response);
       });
       this.clienteservice.createClient(cnuevo).subscribe((response)=>{
         console.log(response);
       });*/
-      this.crearUsuarioYCliente(unuevo,cnuevo);
+      this.crearUsuarioYEmpresa(unuevo,enueva);
       this.enviarCorreo();
       this.referencia.close();
       this.openSnackBar();
     }
 
   }
-  crearUsuarioYCliente(unuevo: User, cnuevo: Cliente) {
+  crearUsuarioYEmpresa(unuevo: User, enuevo: Empresa) {
     this.usuarioservice.createUser(unuevo)
       .pipe(
         switchMap((responseUser) => {
           console.log(responseUser); 
-          return this.clienteservice.createClient(cnuevo);
+          return this.eservice.createEmpresa(enuevo);
         })
       )
       .subscribe((responseClient) => {
@@ -116,50 +108,43 @@ export class UserformComponent {
   validateForm(): boolean {
     this.camposllenos = (this.cedula.trim() !== '') &&
     (this.nombres.trim() !== '') &&
-    (this.apellidos.trim() !== '') &&
-    (this.fechanacimiento !== '') &&
+    (this.sexo.trim() !== '') &&
     (this.email.trim() !== '') &&
     (this.contrasenia.trim() !== '') &&
     (this.ccontrasenia.trim() !== '') &&
     (this.telefono.trim() !== '') &&
-    (this.sexo.trim() !== '') &&
-    (this.empresa.trim() !== '');
+    (this.representante.trim() !== '');
     if(this.camposllenos){
       const cedulavalida= this.validateCedula(this.cedula);
       const nombrevalido= this.validateName(this.nombres);
-      const apellidovalido = this.validateName(this.apellidos);
-      const fechavalida = this.validateFecha(this.fechanacimiento);
       const correovalido = this.validateEmail(this.email);
       const contraseniavalida = this.validateContrasenia(this.contrasenia);
       const ccontraseniavalida = this.validateCcontrasenia(this.contrasenia,this.ccontrasenia);
-      const telefonovalido = this.validateCedula(this.telefono);
-      const empresavalida = this.empresa !== '';
+      const telefonovalido = this.validatePhone(this.telefono);
       const sexovalido = this.sexo !== '';
-      if(cedulavalida && nombrevalido && apellidovalido && fechavalida && correovalido
-        && contraseniavalida && ccontraseniavalida && telefonovalido && empresavalida && sexovalido ){
+      const representantevalido = this.validateName(this.representante);
+      if(cedulavalida && nombrevalido && correovalido
+        && contraseniavalida && ccontraseniavalida && telefonovalido && sexovalido && representantevalido){
           this.errorMessageCedula = '';
           this.errorMessageNombre = '';
-          this.errorMessageApellido = '';
-          this.errorMessageFecha = '';
           this.errorMessageEmail = '';
           this.errorMessageContrasenia = '';
           this.errorMessageCContrasenia = '';
           this.errorMessageTelefono = '';
           this.errorMessageSexo = '';
+          this.errorMessageRepresentante = '';
           return true;
       }else{
         const cedulavalida= this.validateCedula(this.cedula);
         const nombrevalido= this.validateName(this.nombres);
-        const apellidovalido = this.validateName(this.apellidos);
-        const fechavalida = this.validateFecha(this.fechanacimiento);
         const correovalido = this.validateEmail(this.email);
         const contraseniavalida = this.validateContrasenia(this.contrasenia);
         const ccontraseniavalida = this.validateCcontrasenia(this.contrasenia,this.ccontrasenia);
-        const telefonovalido = this.validateCedula(this.telefono);
-        const empresavalida = this.empresa !== '';
+        const telefonovalido = this.validatePhone(this.telefono);
         const sexovalido = this.sexo !== '';
+        const representantevalido = this.validateName(this.representante);;
         if(!cedulavalida){
-          this.errorMessageCedula = 'Cedula solo puede tener 10 digitos sin espacios';
+          this.errorMessageCedula = 'Cedula solo puede tener 13 digitos sin espacios';
         }else{
           this.errorMessageCedula = '';
         }
@@ -167,16 +152,6 @@ export class UserformComponent {
           this.errorMessageNombre = 'Nombre solo puede tener letras';
         }else{
           this.errorMessageNombre = '';
-        }
-        if(!apellidovalido){
-          this.errorMessageApellido = 'Apellido solo puede tener letras';
-        }else{
-          this.errorMessageApellido = '';
-        }
-        if(!fechavalida){
-          this.errorMessageFecha = 'Edad debe ser mayor o igual a 18 años';
-        }else{
-          this.errorMessageFecha = '';
         }
         if(!correovalido){
           this.errorMessageEmail = 'Formato de correo invalido';
@@ -198,15 +173,15 @@ export class UserformComponent {
         }else{
           this.errorMessageTelefono = '';
         }
-        if(!empresavalida){
-          this.errorMessageEmpresa = 'Escoger una opcion';
-        }else{
-          this.errorMessageEmpresa = '';
-        }
         if(!sexovalido){
-          this.errorMessageSexo = 'Escoger una opcion'
+          this.errorMessageSexo = 'Escoger una opcion';
         }else{
-          this.errorMessageSexo = ''
+          this.errorMessageSexo = '';
+        }
+        if(!representantevalido){
+          this.errorMessageRepresentante = 'Representante solo puede tener letras';
+        }else{
+          this.errorMessageRepresentante = '';
         }
         this.errorMessageGeneral = 'Error en formato de los campos';
         return false;
@@ -214,16 +189,14 @@ export class UserformComponent {
     }else{
       const cedulavalida= this.validateCedula(this.cedula);
       const nombrevalido= this.validateName(this.nombres);
-      const apellidovalido = this.validateName(this.apellidos);
-      const fechavalida = this.validateFecha(this.fechanacimiento);
       const correovalido = this.validateEmail(this.email);
       const contraseniavalida = this.validateContrasenia(this.contrasenia);
       const ccontraseniavalida = this.validateCcontrasenia(this.contrasenia,this.ccontrasenia);
-      const telefonovalido = this.validateCedula(this.telefono);
-      const empresavalida = this.empresa !== '';
+      const telefonovalido = this.validatePhone(this.telefono);
       const sexovalido = this.sexo !== '';
+      const representantevalido = this.validateName(this.representante);;
       if(!cedulavalida){
-        this.errorMessageCedula = 'Cedula solo puede tener 10 digitos sin espacios';
+        this.errorMessageCedula = 'Cedula solo puede tener 13 digitos sin espacios';
       }else{
         this.errorMessageCedula = '';
       }
@@ -231,16 +204,6 @@ export class UserformComponent {
         this.errorMessageNombre = 'Nombre solo puede tener letras';
       }else{
         this.errorMessageNombre = '';
-      }
-      if(!apellidovalido){
-        this.errorMessageApellido = 'Apellido solo puede tener letras';
-      }else{
-        this.errorMessageApellido = '';
-      }
-      if(!fechavalida){
-        this.errorMessageFecha = 'Edad debe ser mayor o igual a 18 años';
-      }else{
-        this.errorMessageFecha = '';
       }
       if(!correovalido){
         this.errorMessageEmail = 'Formato de correo invalido';
@@ -262,15 +225,15 @@ export class UserformComponent {
       }else{
         this.errorMessageTelefono = '';
       }
-      if(!empresavalida){
-        this.errorMessageEmpresa = 'Escoger una opcion';
-      }else{
-        this.errorMessageEmpresa = '';
-      }
       if(!sexovalido){
         this.errorMessageSexo = 'Escoger una opcion'
       }else{
         this.errorMessageSexo = ''
+      }
+      if(!representantevalido){
+        this.errorMessageRepresentante = 'Representante solo puede tener letras';
+      }else{
+        this.errorMessageRepresentante = '';
       }
       this.errorMessageGeneral = 'Llenar todos los campos';
     }
@@ -291,6 +254,9 @@ export class UserformComponent {
     });
   }
   validateCedula(s:string):boolean{
+    return /^\d{13}$/.test(s);
+  }
+  validatePhone(s:string):boolean{
     return /^\d{10}$/.test(s);
   }
   validateName(s:string): boolean{
@@ -332,14 +298,10 @@ export class UserformComponent {
     });
   }
   determineSex(s:string):number{
-    if(s ==='Masculino'){
-      return 1;
+    if(s ==='Empresa'){
+      return 4;
     }else{
-      return 2;
+      return 3;
     }
-  }
-  empresaIdbyName(s:string):number{
-    const empresa = this.empresadata.find(empresa => empresa.nombre === s);
-    return empresa ? empresa.id_empresa : 0;
   }
 }

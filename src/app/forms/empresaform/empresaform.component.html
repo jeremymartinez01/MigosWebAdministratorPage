@@ -1,0 +1,72 @@
+<div class="dialog-content">
+    <h2 mat-dialog-title>Registro nueva Empresa</h2>
+
+      <div class="floating-input">
+        <label for="ciInput">Ruc:</label>
+        <input type="text" id="ciInput" [(ngModel)]="cedula" name="ciInput" required />
+      </div>
+      <div class="error-container">
+        <p id="errorMessage">{{ errorMessageCedula }}</p>
+      </div>
+      <div class="floating-input">
+        <label for="nombresInput">Nombres: </label>
+        <input type="text" id="nombresInput" [(ngModel)]="nombres" name="nombresInput" required />
+      </div>
+      <div class="error-container">
+        <p id="errorMessage">{{ errorMessageNombre }}</p>
+      </div>
+      <div class="floating-input">
+        <label for="sexoInput">Tipo: </label>
+        <mat-select [(ngModel)]="sexo" name="sexoInput">
+            <mat-option value="Empresa">Empresa</mat-option>
+            <mat-option value="Publicista">Publicista</mat-option>
+          </mat-select>
+      </div>
+      <div class="error-container">
+        <p id="errorMessage">{{ errorMessageSexo }}</p>
+      </div>
+      <div class="floating-input">
+        <label for="emailInput">Email: </label>
+        <input type="text" id="emailInput" [(ngModel)]="email" name="emailInput" required />
+      </div>
+      <div class="error-container">
+        <p id="errorMessage">{{ errorMessageEmail }}</p>
+      </div>
+      <div class="floating-input">
+        <label for="contraseniaInput">Contraseña: </label>
+        <input type="password" id="contraseniaInput" [(ngModel)]="contrasenia" name="contraseniaInput" #contraseniaInput required />
+        <i (click)="togglePasswordVisibility(contraseniaInput)" class="bi-xs {{ showPassword ? 'bi-eye-slash' : 'bi-eye' }}"></i> 
+      </div>
+      <div class="error-container">
+        <p id="errorMessage">{{ errorMessageContrasenia }}</p>
+      </div>
+      <div class="floating-input">
+        <label for="ccontraseniaInput">Confirmar Contraseña: </label>
+        <input type="password" id="ccontraseniaInput" [(ngModel)]="ccontrasenia" name="ccontraseniaInput" #ccontraseniaInput required />
+        <i (click)="togglePasswordVisibility(ccontraseniaInput)" class="bi-xs {{ showPassword ? 'bi-eye-slash' : 'bi-eye' }}"></i> 
+      </div>
+      <div class="error-container">
+        <p id="errorMessage">{{ errorMessageCContrasenia }}</p>
+      </div>
+      <div class="floating-input">
+        <label for="telefonoInput">Teléfono: </label>
+        <input type="text" id="telefonoInput" [(ngModel)]="telefono" name="telefonoInput" required />
+      </div>
+      <div class="error-container">
+        <p id="errorMessage">{{ errorMessageTelefono }}</p>
+      </div>
+      <div class="floating-input">
+        <label for="ciInput">Representante:</label>
+        <input type="text" id="ciInput" [(ngModel)]="representante" name="ciInput" required />
+      </div>
+      <div class="error-container">
+        <p id="errorMessage">{{ errorMessageRepresentante }}</p>
+      </div>
+    <mat-dialog-actions class="custom-dialog-actions">
+        <button class="custom-button"(click)="close()">Cancelar</button>
+        <button class="custom-button"(click)="save()">Registrar</button>
+    </mat-dialog-actions>
+    <div class="error-container">
+        <p id="errorMessage">{{ errorMessageGeneral }}</p>
+      </div> 
+</div>

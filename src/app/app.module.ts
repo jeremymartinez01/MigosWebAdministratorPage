@@ -45,6 +45,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { VisualizeMapComponent } from './pages/visualize-map/visualize-map.component';
 import { DialogConfirmacionComponent } from './forms/dialog-confirmacion/dialog-confirmacion.component';
 import { PaginadorComponent } from './shared/paginador/paginador.component';
+import { EmpresaformComponent } from './forms/empresaform/empresaform.component';
 
 
 export const DATE_FORMATS: MatDateFormats ={
@@ -83,6 +84,7 @@ export const DATE_FORMATS: MatDateFormats ={
     VisualizeMapComponent,
     DialogConfirmacionComponent,
     PaginadorComponent,
+    EmpresaformComponent,
 
   ],
   imports: [

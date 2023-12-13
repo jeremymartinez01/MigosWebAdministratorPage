@@ -23,7 +23,6 @@ export class MenuComponent {
     this.nombreVentanaService.idRole$.subscribe((id: number) => {
       this.idrole = id;
     });
-    console.log(this.idrole);
   }
   logout(){
     this.onLogout.emit();

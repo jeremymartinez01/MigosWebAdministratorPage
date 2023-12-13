@@ -48,14 +48,15 @@ export class ConductoresComponent {
     const usuario = this.usuariodata.find(user => user.id_usuario === clienteId);
     return usuario ? usuario.email : '';
   }
-  
+
   loadFilteredClients(): void {
     if (this.clientedata.length > 0) {
       this.clientedata = this.clientedata.filter((cliente) =>
-      this.usuariodata.some((user) => user.id_usuario === cliente.id_cliente));
+      this.usuariodata.some((user) => user.id_usuario === cliente.id_usuario));
       //this.clientedata = this.clientedata.filter((cliente) => cliente.estado === 2);
       if(this.idrole === 2){
         this.clientedata.filter(cliente => cliente.id_empresa === this.idmain);
+        //console.log("1");
       }
     }
   }
@@ -112,6 +113,9 @@ export class ConductoresComponent {
     return this.clientedata.slice(startIndex, endIndex);
   }
   openFormDialog(): void {
+    this.nombreVentanaService.setUserQuantity(this.usuariodata.reduce((maxIdUsuario, usuarioActual) => {
+      return usuarioActual.id_usuario > maxIdUsuario ? usuarioActual.id_usuario : maxIdUsuario;
+    }, this.usuariodata[0].id_usuario));
     const dialogRef = this.formulario.open(UserformComponent, {
       width: '450px',
       height:'600px',

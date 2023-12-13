@@ -38,6 +38,7 @@ export class LoginComponent {
   login () {
     const testing = this.userdata.find(u => u.email === this.username && u.contrasena === this.password);
     if(testing && (testing.rol_usuario === 1 || testing.rol_usuario === 2)){
+      console.log(testing);
       this.nombre  = this.getNombre();
       this.nombreVentanaService.setUserName(this.nombre);
       this.nombreVentanaService.setIdRole(testing.rol_usuario);
