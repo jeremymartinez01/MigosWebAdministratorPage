@@ -9,7 +9,7 @@
       </div>
 
       <div class="user-name">
-        <span class="user-text">USERNAME ADM</span>
+        <span class="user-text">{{userName}}</span>
         <!--<hr class="user-divider" color="#FFFF00">-->
         <span class="user-divider"></span>
       </div>
@@ -17,7 +17,7 @@
       <div class="menu-options">
         <mat-list role="list">
 
-          <mat-list-item role="listitem" (click)="changeSelectedOption('conductores')" [ngClass]="{'selected': selectedOption === 'conductores'}">
+          <mat-list-item role="listitem" routerLink="/conductores" (click)="changeSelectedOption('conductores')" [ngClass]="{'selected': selectedOption === 'conductores'}">
             <img class="menu-img" [src]="selectedOption === 'conductores' ? '../../../assets/conductores01.png' : '../../../assets/conductores02.png'" alt="Conductores">
             <span class="menu-text">Conductores</span>
           </mat-list-item>

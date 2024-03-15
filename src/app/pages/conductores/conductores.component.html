@@ -1,1 +1,53 @@
-<p>Por hacer conductores</p>
+<div class="conductores-container">
+    <div class="option">
+        <mat-form-field>
+            <mat-label>Todos los filtros</mat-label>
+            <mat-select>
+                <mat-option value="filter1">Filtro 1</mat-option>
+                <mat-option value="filter2">Filtro 2</mat-option>
+                <mat-option value="filter3">Filtro 3</mat-option>
+            </mat-select>
+          </mat-form-field>          
+    </div>
+    <div class="option">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Fecha de registro">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Identificación</th>
+        <th>Fecha Creación</th>
+        <th>Email</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of getPagedClients()">
+        <td>{{ cliente.nombre }}</td>
+        <td>{{ cliente.cedula_cliente }}</td>
+        <td>{{ getUsuarioFechaCreacion(cliente.id_usuario) }}</td>
+        <td>{{ getUsuarioEmail(cliente.id_usuario) }}</td>
+        <td>
+          <button (click)="habilitarUsuario(cliente.id_cliente)" class="habilitar-button">Habilitar</button>
+          <button (click)="deshabilitarUsuario(cliente.id_cliente)" class="deshabilitar-button">Deshabilitar</button>
+          <button (click)="eliminarUsuario(cliente.id_cliente)" class="eliminar-button">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination-container">
+    <i class="bi bi-plus-square-fill" (click)="openFormDialog()"></i>
+    <p class="pagination-text">Mostrando {{ (currentPage * itemsPerPage + 1) }} - {{ (currentPage + 1) * itemsPerPage < clientedata.length ? (currentPage + 1) * itemsPerPage : clientedata.length }} de {{ clientedata.length }} entradas</p>
+        <button class="previous-button" (click)="previousPage()" [disabled]="currentPage === 0">Anterior</button>
+        <button class="current-text">{{ currentPage + 1 }}</button>
+        <button class="next-button" (click)="nextPage()" [disabled]="currentPage === totalPages - 1">Siguiente</button>
+  </div>
+    
+  

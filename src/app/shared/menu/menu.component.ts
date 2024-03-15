@@ -1,4 +1,5 @@
 import { Component,Output,EventEmitter } from '@angular/core';
+import { NombreVentanaService } from '../../providers/nombre-ventana.service';
 
 @Component({
   selector: 'app-menu',
@@ -6,8 +7,23 @@ import { Component,Output,EventEmitter } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent {
+  userName : string;
+  idrole: number=0;
   @Output() onLogout: EventEmitter<void> = new EventEmitter<void>();
 
+  constructor(private nombreVentanaService: NombreVentanaService) {
+    this.userName = "USER"
+  }
+  
+  ngOnInit() {
+   
+    this.nombreVentanaService.userName$.subscribe((userName: string) => {
+      this.userName = userName;
+    });
+    this.nombreVentanaService.idRole$.subscribe((id: number) => {
+      this.idrole = id;
+    });
+  }
   logout(){
     this.onLogout.emit();
   }
@@ -17,14 +33,9 @@ export class MenuComponent {
   // Función para cambiar la opción seleccionada
   changeSelectedOption(option: string) {
     if (this.selectedOption !== option) {
-      this.selectedOption = option; // Establecer la nueva opción
+      this.selectedOption = option; 
     }
-   /* if (this.selectedOption === option) {
-      
-      this.selectedOption = ''; // Restablecer la opción si ya está seleccionada
-    } else {
-      this.selectedOption = option; // Establecer la nueva opción
-    }*/
+   
   }
   
 }

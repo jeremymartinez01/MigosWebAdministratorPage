@@ -8,8 +8,7 @@ body {
   
 }
 .menu-principal {
-
-  min-height: 100vh;
+  position: sticky;
   display: flex;
   width: 100%;
 }
@@ -17,7 +16,7 @@ body {
   
   position: sticky;
   display: flex;
-  height: 100vh;
+  /*height: 180%;*/
   flex-direction: column;
   width: 20vw; 
   background-color:black;
@@ -27,6 +26,10 @@ body {
   align-items: center;
  /* overflow-y: auto;*/
  /* transition: width 0.3s;*/
+ display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   
 }
 .logo {
@@ -149,13 +152,12 @@ mat-list-item {
 .menu-router{
   background-color:#E4ECF4;
   padding: 2%; 
-  box-sizing: border-box;
-  max-height: 100;
+  /*box-sizing: border-box;*/
   width: 100%;
-  
-  
-  position: absoluta; 
-  overflow: auto;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .selected{

@@ -16,6 +16,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -31,6 +32,21 @@ import { NotificacionesComponent } from './pages/notificaciones/notificaciones.c
 import { PermisosComponent } from './pages/permisos/permisos.component';
 import { ConfiguracionComponent } from './pages/configuracion/configuracion.component';
 import { HeaderComponent } from './header/header.component';
+import { UserformComponent } from './forms/userform/userform.component';
+import { NotificacionHijoComponent } from './pages/notificacion-hijo/notificacion-hijo.component';
+import { ConfigVerificacionesComponent } from './pages/config-verificaciones/config-verificaciones.component';
+import { ConfigNotificacionesComponent } from './pages/config-notificaciones/config-notificaciones.component';
+import { ConfigVehiculosComponent } from './pages/config-vehiculos/config-vehiculos.component';
+import { ConfigBrandeoComponent } from './pages/config-brandeo/config-brandeo.component';
+import { ConfigSectoresComponent } from './pages/config-sectores/config-sectores.component';
+import { CampaniaformComponent } from './forms/campaniaform/campaniaform.component';
+import { ConfigMapComponent } from './pages/config-map/config-map.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { VisualizeMapComponent } from './pages/visualize-map/visualize-map.component';
+import { DialogConfirmacionComponent } from './forms/dialog-confirmacion/dialog-confirmacion.component';
+import { PaginadorComponent } from './shared/paginador/paginador.component';
+import { EmpresaformComponent } from './forms/empresaform/empresaform.component';
+
 
 export const DATE_FORMATS: MatDateFormats ={
   parse: {dateInput: 'dd-MM-yyyy'},
@@ -56,6 +72,19 @@ export const DATE_FORMATS: MatDateFormats ={
     PermisosComponent,
     ConfiguracionComponent,
     HeaderComponent,
+    UserformComponent,
+    NotificacionHijoComponent,
+    ConfigVerificacionesComponent,
+    ConfigNotificacionesComponent,
+    ConfigVehiculosComponent,
+    ConfigBrandeoComponent,
+    ConfigSectoresComponent,
+    CampaniaformComponent,
+    ConfigMapComponent,
+    VisualizeMapComponent,
+    DialogConfirmacionComponent,
+    PaginadorComponent,
+    EmpresaformComponent,
 
   ],
   imports: [
@@ -77,6 +106,8 @@ export const DATE_FORMATS: MatDateFormats ={
     MatNativeDateModule,
     DateFnsModule,
     MatDialogModule,
+    MatSelectModule,
+    MatSnackBarModule,
   ],
   providers: [
     {provide: DateAdapter, useClass: DateFnsAdapter},

@@ -11,6 +11,15 @@ import { NotificacionesComponent } from './pages/notificaciones/notificaciones.c
 import { PermisosComponent } from './pages/permisos/permisos.component';
 import { SolicitudesComponent } from './pages/solicitudes/solicitudes.component';
 import { VerificacionesComponent } from './pages/verificaciones/verificaciones.component';
+import {ConfigNotificacionesComponent} from './pages/config-notificaciones/config-notificaciones.component';
+import {ConfigVehiculosComponent} from './pages/config-vehiculos/config-vehiculos.component';
+import {ConfigVerificacionesComponent} from './pages/config-verificaciones/config-verificaciones.component';
+import {ConfigBrandeoComponent} from './pages/config-brandeo/config-brandeo.component';
+import {ConfigSectoresComponent} from './pages/config-sectores/config-sectores.component';
+import { NotificacionHijoComponent } from './pages/notificacion-hijo/notificacion-hijo.component';
+import {ConfigMapComponent} from './pages/config-map/config-map.component';
+import { DialogConfirmacionComponent } from './forms/dialog-confirmacion/dialog-confirmacion.component';
+
 const routes: Routes = [
   //{path:"login", component: LoginComponent},
   {path:"dashboard",component:DashboardComponent},
@@ -23,6 +32,14 @@ const routes: Routes = [
   {path:"permisos", component:PermisosComponent},
   {path:"solicitudes", component:SolicitudesComponent},
   {path:"verificaciones", component:VerificacionesComponent},
+  {path:"config-verificaciones", component:ConfigVerificacionesComponent},
+  {path:"config-notificaciones", component:ConfigNotificacionesComponent},
+  {path:"config-vehiculos", component:ConfigVehiculosComponent},
+  {path:"config-brandeo", component:ConfigBrandeoComponent},
+  {path:"config-sectores", component:ConfigSectoresComponent},
+  {path:"notificacion-hijo", component: NotificacionHijoComponent},
+  {path:"config-map", component: ConfigMapComponent},
+  {path: "dialog-confirmacion", component:DialogConfirmacionComponent},
   {path:" ",redirectTo:'/login',pathMatch:'full'},
   {path:"**",redirectTo:"/login"}
 ];

@@ -1,0 +1,136 @@
+
+.root-container{
+   width: 100%;
+   height: 100%;
+}
+/*::ng-deep .datepicker-container{
+    display: flex;
+    background: white;
+    height: 102px;
+    margin-bottom: 17px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    
+}*/
+.top-container {
+    background-color: #fff;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+ 
+  mat-form-field.mat-mdc-form-field{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 4% 2%;
+    width: 600px;
+    box-sizing: border-box;
+  }
+  
+  .notification-content {
+    width: 100%;
+  }
+  
+  /*.notification-actions {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+   
+    justify-content: space-between;
+    align-items: flex-end;
+  }*/
+  
+  button.mat-raised-button {
+    border-radius: 40px; /* Redondear las esquinas del botón "Ver más información" */
+  }
+  .button-container {
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+    padding: 10px; /* Espacio alrededor del botón */
+  }
+
+.notificaciones-root {
+    
+     width: 100%;
+     height: 100%;
+   /* grid-column: span 10;*/
+    background-image: url('../../../assets/back_principal.jpg');
+    background-position: 1px -44px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(7, 1fr);
+    gap: 0px 0px;
+   
+   grid-template-areas:
+      ". . . . . . . . . ."
+      ". verif verif . sector sector . noti noti ."
+      ". verif verif . sector sector . noti noti ."
+      ". . . . . . . . . ."
+      ". . vehi vehi . . bran bran . ."
+      ". . vehi vehi . . bran bran . ."
+      ". . . . . . . . . ."
+}
+
+.notificaciones-root * {
+  /*border: 1px solid red;*/
+  position: relative;
+}
+
+/*.notificaciones-root *:after {
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+*/
+
+
+#card-configuracion {
+    /*width: 200px;
+    height: 200px;*/
+    border: 1px solid #A8B4B2;
+    background-color:rgba(168,180,178,0.5);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    width: 88%;
+    height: 100%;
+    /*padding: 10px;*/
+
+}
+
+#card-configuracion img{
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.7);
+    position: relative;
+
+}
+
+.verif { grid-area: verif; }
+
+.sector { grid-area: sector; }
+
+.noti { grid-area: noti; }
+
+.vehi { grid-area: vehi; }
+
+.bran { grid-area: bran; }

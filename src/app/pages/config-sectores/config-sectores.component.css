@@ -1,0 +1,139 @@
+.material-icons {
+    font-size: 24px;
+  }
+  
+span {
+    color: blue; 
+    cursor: pointer;
+}
+
+span:hover {
+    color: black;
+}
+  .habilitar-button {
+    background-color: rgba(0, 128, 0, 0.766);
+    color: white;
+  }
+  
+  .deshabilitar-button {
+    background-color: rgba(0, 0, 255, 0.711);
+    color: white;
+  }
+  
+  .eliminar-button {
+    background-color: rgba(255, 0, 0, 0.787);
+    color: white;
+  }
+  
+  
+  .table thead th {
+    background-color: black;
+    color: white;
+    height: 60px;
+    align-items: center;
+    justify-items: center;
+
+  }
+  
+  .table button {
+    margin-right: 10px;
+    border-radius: 10px; 
+    border: none;
+  }
+
+  .table {
+    margin-top: 35px;
+    margin-bottom: 35px;
+    display: table;
+    width: 97%;
+    border-collapse: collapse;
+    position: relative;
+  }
+  
+  th, td {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding: 8px;
+  }
+  
+  thead, tbody {
+    display: table-row-group;
+  }
+  
+  tr {
+    display: table-row;
+  }
+
+  .fila-boton {
+    position: relative;
+  }
+  
+  .boton-flotante {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    background-color:#C6A253;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 25px; /* Tamaño del contenedor */
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s; 
+    text-align: center;
+    overflow: hidden; 
+  }
+  
+  .icono {
+    font-size: 50px;
+    display: flex;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+  }
+  
+  .boton-flotante:hover {
+    background-color:#f1ce82; 
+  }
+
+  .export-data-bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: white; /* Fondo blanco */
+    width: 97%; /* Anchura del 97% */
+    padding: 5px; /* Añadir espacio interno para mejorar la apariencia */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+    margin-top: 15px;
+    height: 65px;
+  }
+  
+  .button-container {
+    margin-top: 10px;
+    margin-left: auto; /* Mueve el contenedor de botones hacia la esquina derecha */
+    align-self: flex-end; /* Fija el contenedor de botones en la parte inferior */
+    
+  }
+  
+  .button-pdf, .button-excel {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .button-pdf img, .button-excel img {
+    margin-right: 5px;
+  }
+  
+  /* Puedes ajustar la anchura máxima de la imagen según tus necesidades */
+  .button-pdf img, .button-excel img {
+    max-width: 24px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    height: auto;
+  }  
+  

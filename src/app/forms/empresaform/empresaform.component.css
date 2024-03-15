@@ -1,0 +1,55 @@
+.dialog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:rgba(184, 135, 11, 0.179);
+}
+.floating-input {
+    display: flex;
+    align-items: center;
+    width: 400px; 
+    border-radius: 20px; 
+    padding: 7px; 
+    border: 1px solid #000; 
+    margin-top: 15px;
+    background-color:white;
+}
+  #fecha{
+    height: 39px;
+  }
+  .floating-input label {
+    color: #000;
+    margin-right: 10px; 
+  }
+  
+  .floating-input input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    flex: 1;
+    padding: 0;
+  }
+  /*.custom-dialog-actions {
+    display: flex;
+    justify-content: flex-end; 
+  }*/
+  
+  .custom-dialog-actions .custom-button {
+    border-radius: 50px;
+    padding: 10px 60px; 
+    margin: 10px; 
+    background-color: rgb(251, 255, 0); 
+    color: #000; 
+    border: none;
+  }
+  .error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #errorMessage {
+    color: red;
+    font-size: 12px;
+  }
