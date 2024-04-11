@@ -11,7 +11,7 @@ export class GoogleMapsService {
   async load(apiKey: string): Promise<void> {
     if (!this.loaded) {
       const loader = new Loader({
-        apiKey: apiKey,
+        apiKey: "AIzaSyBSFBro1vBs0RFOCxnh03rBhOzkrjK7l4w",
         version: 'weekly',
         libraries: ['places','drawing'],
       });

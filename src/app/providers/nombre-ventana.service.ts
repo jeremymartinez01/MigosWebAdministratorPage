@@ -11,15 +11,19 @@ export class NombreVentanaService {
   userName$ = this.userNameSubject.asObservable();
   private idRoleSubject = new BehaviorSubject<number>(0);
   idRole$ = this.idRoleSubject.asObservable();
-  private idMainSubject = new BehaviorSubject<number>(0);
-  idMain$ = this.idMainSubject.asObservable();
-  private userIdSubject = new BehaviorSubject<number>(0);
-  userId$ = this.userIdSubject.asObservable();
   private userQuantitySubject = new BehaviorSubject<number>(0);
   userQuantity$ = this.userQuantitySubject.asObservable();
-  setUserId(userId: number) {
-    this.userIdSubject.next(userId);
-  }
+  private userIdSubject = new BehaviorSubject<number>(0);
+  userId$ = this.userIdSubject.asObservable();
+  private clientIdSubject = new BehaviorSubject<number>(0);
+  clientId$ = this.clientIdSubject.asObservable();
+  private conductorIdSubject = new BehaviorSubject<number>(0);
+  conductorId$ = this.conductorIdSubject.asObservable();
+  private empresaIdSubject = new BehaviorSubject<number>(0);
+  empresaId$ = this.empresaIdSubject.asObservable();
+  private publicistaIdSubject = new BehaviorSubject<number>(0);
+  publicistaId$ = this.publicistaIdSubject.asObservable();
+
   
   setWindowName(name: string) {
     this.windowNameSubject.next(name);
@@ -28,13 +32,33 @@ export class NombreVentanaService {
   setUserName(userName: string) {
     this.userNameSubject.next(userName);
   }
+
   setIdRole(id:number){
     this.idRoleSubject.next(id);
   }
-  setIdMain(id:number){
-    this.idRoleSubject.next(id);
-  }
+
   setUserQuantity(quantity:number){
     this.userQuantitySubject.next(quantity);
   }
+
+  setUserId(userId: number) {
+    this.userIdSubject.next(userId);
+  }
+
+  setClientId(id:number){
+    this.clientIdSubject.next(id);
+  }
+
+  setConductorId(id:number){
+    this.conductorIdSubject.next(id);
+  }
+
+  setEmpresaId(id:number){
+    this.empresaIdSubject.next(id);
+  }
+
+  setPublicistaId(id:number){
+    this.publicistaIdSubject.next(id);
+  }
+  
 }

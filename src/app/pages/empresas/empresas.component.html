@@ -1,5 +1,5 @@
 <div class="empresa-container">
-    <div class="option">
+  <div class="option">
         <mat-form-field>
             <mat-label>Todos los filtros</mat-label>
             <mat-select>
@@ -15,41 +15,52 @@
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-    </div>
   </div>
-  
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>RUC</th>
-        <th>Fecha de Ingreso</th>
-        <th>Correo</th>
-        <th>Descripción</th>
-        <th>Opciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let empresa of getPagedClients()">
-        <td>{{ empresa.nombre }}</td>
-        <td>{{ empresa.ruc }}</td>
-        <td>{{ empresa.fecha_creacion }}</td>
-        <td>{{ empresa.mail_contacto }}</td>
-        <td>{{empresa.descripcion}}</td>
-        <td>
-            <div class="button-container">
-                <button (click)="habilitarUsuario(empresa.id_empresa)" class="habilitar-button">Habilitar</button>
-                <button (click)="deshabilitarUsuario(empresa.id_empresa)" class="deshabilitar-button">Deshabilitar</button>
-                <button (click)="eliminarUsuario(empresa.id_empresa)" class="eliminar-button">Eliminar</button>
-            </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+</div>
+  <div class="tabla-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>RUC</th>
+          <th>Fecha de Ingreso</th>
+          <th>Correo</th>
+          <th>Descripción</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let empresa of getPagedClients()">
+          <td>{{ empresa.nombre }}</td>
+          <td>{{ empresa.ruc }}</td>
+          <td>{{ empresa.fecha_creacion }}</td>
+          <td>{{ empresa.mail_contacto }}</td>
+          <td>{{empresa.descripcion}}</td>
+          <td>
+              <div class="button-container">
+                  <button (click)="habilitarUsuario(empresa.id_empresa)" class="habilitar-button">Habilitar</button>
+                  <button (click)="deshabilitarUsuario(empresa.id_empresa)" class="deshabilitar-button">Deshabilitar</button>
+                  <button (click)="eliminarUsuario(empresa.id_empresa)" class="eliminar-button">Eliminar</button>
+              </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
   <div class="pagination-container">
     <i class="bi bi-plus-square-fill" (click)="openFormDialog()"></i>
     <p class="pagination-text">Mostrando {{ (currentPage * itemsPerPage + 1) }} - {{ (currentPage + 1) * itemsPerPage < empresasdata.length ? (currentPage + 1) * itemsPerPage : empresasdata.length }} de {{ empresasdata.length }} entradas</p>
         <button class="previous-button" (click)="previousPage()" [disabled]="currentPage === 0">Anterior</button>
         <button class="current-text">{{ currentPage + 1 }}</button>
         <button class="next-button" (click)="nextPage()" [disabled]="currentPage === totalPages - 1">Siguiente</button>
+  </div>
+
+  <div class="export-data-bottom">
+    <button class="button-pdf">
+      <img src="../../../assets/exportar.png" alt="Exportar PDF"> Exportar PDF
+    </button>
+    <button class="button-excel">
+      <img src="../../../assets/exportar.png" alt="Importar Excel"> Importar Excel
+    </button>
   </div>

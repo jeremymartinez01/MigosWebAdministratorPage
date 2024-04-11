@@ -19,6 +19,8 @@ import {ConfigSectoresComponent} from './pages/config-sectores/config-sectores.c
 import { NotificacionHijoComponent } from './pages/notificacion-hijo/notificacion-hijo.component';
 import {ConfigMapComponent} from './pages/config-map/config-map.component';
 import { DialogConfirmacionComponent } from './forms/dialog-confirmacion/dialog-confirmacion.component';
+import { ModelosConfigComponent } from './pages/modelos-config/modelos-config.component';
+import { MarcasConfigComponent } from './pages/marcas-config/marcas-config.component';
 
 const routes: Routes = [
   //{path:"login", component: LoginComponent},
@@ -40,8 +42,11 @@ const routes: Routes = [
   {path:"notificacion-hijo", component: NotificacionHijoComponent},
   {path:"config-map", component: ConfigMapComponent},
   {path: "dialog-confirmacion", component:DialogConfirmacionComponent},
+  {path:"modelos-config", component:ModelosConfigComponent},
+  {path:"marcas-config", component:MarcasConfigComponent},
   {path:" ",redirectTo:'/login',pathMatch:'full'},
   {path:"**",redirectTo:"/login"}
+
 ];
 
 @NgModule({

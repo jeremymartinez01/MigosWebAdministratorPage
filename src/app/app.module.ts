@@ -46,6 +46,10 @@ import { VisualizeMapComponent } from './pages/visualize-map/visualize-map.compo
 import { DialogConfirmacionComponent } from './forms/dialog-confirmacion/dialog-confirmacion.component';
 import { PaginadorComponent } from './shared/paginador/paginador.component';
 import { EmpresaformComponent } from './forms/empresaform/empresaform.component';
+import { ModelosConfigComponent } from './pages/modelos-config/modelos-config.component';
+import { MarcasConfigComponent } from './pages/marcas-config/marcas-config.component';
+import { ModeloformComponent } from './forms/modeloform/modeloform.component';
+import { MarcaformComponent } from './forms/marcaform/marcaform.component';
 
 
 export const DATE_FORMATS: MatDateFormats ={
@@ -85,6 +89,10 @@ export const DATE_FORMATS: MatDateFormats ={
     DialogConfirmacionComponent,
     PaginadorComponent,
     EmpresaformComponent,
+    ModelosConfigComponent,
+    MarcasConfigComponent,
+    ModeloformComponent,
+    MarcaformComponent,
 
   ],
   imports: [

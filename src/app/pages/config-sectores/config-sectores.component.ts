@@ -19,7 +19,7 @@ export class ConfigSectoresComponent implements OnInit, AfterViewInit {
   @ViewChild(PaginadorComponent, { static: false }) paginador: PaginadorComponent | undefined;
   id_empresa: number;
   sectores: SectorGet[] = [];
-  usuarioId: number = 11;
+  usuarioId: number = 39;
 
   // PAGINADOR
   SectoresEnPagina: SectorGet[] = [];
@@ -30,11 +30,11 @@ export class ConfigSectoresComponent implements OnInit, AfterViewInit {
   // PAGINADOR
 
   constructor(private dialog: MatDialog, private sectorService: SectorService, private nombreVentanaService: NombreVentanaService, private cdr: ChangeDetectorRef) {
-    this.id_empresa = 11;
+    this.id_empresa = 8;
   }
 
   ngOnInit() {
-    this.nombreVentanaService.idMain$.subscribe((id: number) => {
+    this.nombreVentanaService.userId$.subscribe((id: number) => {
       this.id_empresa = id;
     });
 
@@ -77,12 +77,12 @@ export class ConfigSectoresComponent implements OnInit, AfterViewInit {
         let fecha_creacion = new Date();
         let fecha_formateada = fecha_creacion.toISOString().split('T')[0];
         const nuevoSector: Sector = {
-          id_empresa: 1,
+          id_empresa: 2,
           nombre: result.name,
           fecha_creacion: fecha_formateada,
           cerco_virtual: result.coordinates,
           fecha_modificacion: fecha_formateada,
-          estado: 2,
+          estado: 1,
         };
 
         // Crea el sector en la base de datos

@@ -1,1 +1,63 @@
-<p>Por hacer solicitudes</p>
+<div class="conductores-container">
+    <div class="option">
+        <mat-form-field>
+            <mat-label>Todos los filtros</mat-label>
+            <mat-select>
+                <mat-option value="filter1">Filtro 1</mat-option>
+                <mat-option value="filter2">Filtro 2</mat-option>
+                <mat-option value="filter3">Filtro 3</mat-option>
+            </mat-select>
+          </mat-form-field>          
+    </div>
+    <div class="option">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Fecha de registro">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="tabla-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Identificación</th>
+          <th>Campaña</th>
+          <th>Fecha de envio</th>
+          <th>Formulario</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let solicitud of getPagedSolicitudes()">
+          <td>{{ getNombre(solicitud.id_usuario) }}</td><!--conseguir con servicio a partir de userId con su rol determino cliente o chofer-->
+          <td>{{ solicitud.cedula }}</td>
+          <td>{{ getNombreCampana(solicitud.id_campana) }}</td><!--conseguir con servicio a partir de campanaId-->
+          <td>{{ solicitud.fecha_envio }}</td>
+          <td style="color: blue;">Ver detalle</td>
+          <td>
+            <button (click)="aceptarSolicitud(solicitud)" class="habilitar-button">Aceptar</button>
+            <button (click)="rechazarSolicitud(solicitud)" class="eliminar-button">Rechazar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pagination-container">
+    <p class="pagination-text">Mostrando {{ (currentPage * itemsPerPage + 1) }} - {{ (currentPage + 1) * itemsPerPage < solicitudes.length ? (currentPage + 1) * itemsPerPage : solicitudes.length }} de {{ solicitudes.length }} entradas</p>
+        <button class="previous-button" (click)="previousPage()" [disabled]="currentPage === 0">Anterior</button>
+        <button class="current-text">{{ currentPage + 1 }}</button>
+        <button class="next-button" (click)="nextPage()" [disabled]="currentPage === totalPages - 1">Siguiente</button>
+  </div>
+
+  <div class="export-data-bottom">
+    <button class="button-pdf">
+      <img src="../../../assets/exportar.png" alt="Exportar PDF"> Exportar PDF
+    </button>
+    <button class="button-excel">
+      <img src="../../../assets/exportar.png" alt="Importar Excel"> Importar Excel
+    </button>
+  </div>
+    
+  

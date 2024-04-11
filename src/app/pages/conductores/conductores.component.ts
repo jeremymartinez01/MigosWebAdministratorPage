@@ -28,7 +28,7 @@ export class ConductoresComponent {
     this.nombreVentanaService.idRole$.subscribe((id: number) => {
       this.idrole = id;
     });
-    this.nombreVentanaService.idMain$.subscribe((id: number) => {
+    this.nombreVentanaService.userId$.subscribe((id: number) => {
       this.idmain = id;
     });
     forkJoin([

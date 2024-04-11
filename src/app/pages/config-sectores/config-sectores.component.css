@@ -107,7 +107,7 @@ span:hover {
     justify-content: flex-end;
     align-items: center;
     background-color: white; /* Fondo blanco */
-    width: 97%; /* Anchura del 97% */
+    width: 100%; /* Anchura del 97% */
     padding: 5px; /* Añadir espacio interno para mejorar la apariencia */
     box-sizing: border-box; /* Incluye el padding en el ancho total */
     margin-top: 15px;

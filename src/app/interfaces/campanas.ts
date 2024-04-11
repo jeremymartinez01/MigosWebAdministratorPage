@@ -1,13 +1,21 @@
 export interface Campania {
   id_campana: number
   nombre_campana: string
+  correo_responsable: string
+  id_sector: number
   fecha_inicio: string
   fecha_fin: string
   fecha_fin_registro: string
   presupuesto: number
   nombre_responsable: string
   tarifa_base: number
-  taller_brandeo: string
+  tarifa_min: number
+  tarifa_max: number
+  hora_monetizable_inicio: string
+  hora_monetizable_fin: string
+  cobro_minimo: number
+  tipo_brandeo: string
+  taller_brandeo: number
   carroceria_capo: boolean
   puerta_conductor: boolean
   puerta_pasajero: boolean
@@ -18,5 +26,12 @@ export interface Campania {
   fecha_creacion: string
   fecha_modificacion: string
   estado: number
-  id_empresa: number
+  sedan_admisible: boolean,
+  suv_admisible: boolean,
+  camion_admisible: boolean,
+  camioneta_admisible: boolean,
+  bus_admisible: boolean,
+  id_empresa: number,
+  id_ciudad: number,
+  id_pais: number
 }

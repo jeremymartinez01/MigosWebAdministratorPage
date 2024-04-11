@@ -1,30 +1,30 @@
-<div class="filtros-container">
+<!--<div class="filtros-container">
   no definido
-</div>
+</div>-->
 <div class="tabla-container">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Estado</th>
-          <th>Ubicación</th>
-          <th>Opciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let sector of SectoresEnPagina">
-          <td>{{ sector.nombre }}</td>
-          <td>{{ sector.estado === 1 ? 'Activo' : 'Inactivo' }}</td>
-          <td><span (click)="openVisualizeMapDialog(sector)">Ver en el mapa</span></td>
-          <td>
-            <button  (click)="abrirDialogoConfirmacion('habilitar', sector.id_sector)" class="habilitar-button">Habilitar</button>
-            <button  (click)="abrirDialogoConfirmacion('deshabilitar', sector.id_sector)" class="deshabilitar-button">Deshabilitar</button>
-            <button  (click)="abrirDialogoConfirmacion('eliminar', sector.id_sector)" class="eliminar-button">Eliminar</button>
-          </td>
-        </tr>
-      </tbody>
-      
-    </table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Estado</th>
+        <th>Ubicación</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sector of SectoresEnPagina">
+        <td>{{ sector.nombre }}</td>
+        <td>{{ sector.estado === 1 ? 'Activo' : 'Inactivo' }}</td>
+        <td><span (click)="openVisualizeMapDialog(sector)">Ver en el mapa</span></td>
+        <td>
+          <button  (click)="abrirDialogoConfirmacion('habilitar', sector.id_sector)" class="habilitar-button">Habilitar</button>
+          <button  (click)="abrirDialogoConfirmacion('deshabilitar', sector.id_sector)" class="deshabilitar-button">Deshabilitar</button>
+          <button  (click)="abrirDialogoConfirmacion('eliminar', sector.id_sector)" class="eliminar-button">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+    
+  </table>
 
   <div class="fila-boton">
     <button class="boton-flotante" (click)="openMapDialog()">

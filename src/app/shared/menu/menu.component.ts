@@ -19,6 +19,8 @@ export class MenuComponent {
    
     this.nombreVentanaService.userName$.subscribe((userName: string) => {
       this.userName = userName;
+      console.log("menu")
+      console.log(userName)
     });
     this.nombreVentanaService.idRole$.subscribe((id: number) => {
       this.idrole = id;

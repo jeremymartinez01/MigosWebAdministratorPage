@@ -78,10 +78,46 @@
     height: 30px;
     margin-top: 9px;
 }
+
 .bi{
-    margin-top: 7px;
-    margin-right: 20px;
-    margin-left: 7px;
-    font-size: 35px;
+  margin-top: 7px;
+  margin-right: 20px;
+  margin-left: 7px;
+  font-size: 35px;
+  color: rgb(18,188,200);
 }
+
+.export-data-bottom {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: white; /* Fondo blanco */
+  width: 100%; /* Anchura del 97% */
+  padding: 5px; /* Añadir espacio interno para mejorar la apariencia */
+  box-sizing: border-box; /* Incluye el padding en el ancho total */
+  margin-top: 15px;
+  height: 65px;
+}
+
+.button-container {
+  margin-top: 10px;
+  margin-left: auto; /* Mueve el contenedor de botones hacia la esquina derecha */
+  align-self: flex-end; /* Fija el contenedor de botones en la parte inferior */
   
+}
+
+.button-pdf, .button-excel {
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.button-pdf img, .button-excel img {
+  margin-right: 5px;
+}
+
+/* Puedes ajustar la anchura máxima de la imagen según tus necesidades */
+.button-pdf img, .button-excel img {
+  max-width: 24px; /* Ajusta el tamaño de la imagen según tus necesidades */
+  height: auto;
+}  
