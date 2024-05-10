@@ -24,6 +24,7 @@
             <tr>
             <th>Modelo</th>
             <th>Marca</th>
+            <th>Estado</th>
             <th>Opciones</th>
             </tr>
         </thead>
@@ -31,6 +32,7 @@
             <tr *ngFor="let modelo of getPagedModelos()">
             <td>{{ modelo.nombre }}</td>
             <td>{{ getMarca(modelo.id_marca) }}</td>
+            <td>{{ modelo.estado }}</td>
             <td>
                 <button (click)="editarModelo(modelo)" class="habilitar-button">Editar</button>
                 <button (click)="deshabilitarModelo(modelo)" class="deshabilitar-button">Deshabilitar</button>

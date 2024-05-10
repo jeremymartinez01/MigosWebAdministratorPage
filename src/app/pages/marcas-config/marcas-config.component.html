@@ -1,1 +1,59 @@
-<p>marcas-config works!</p>
+<div class="modelos-container">
+    <div class="option">
+        <mat-form-field>
+            <mat-label>Todos los filtros</mat-label>
+            <mat-select>
+                <mat-option value="filter1">Filtro 1</mat-option>
+                <mat-option value="filter2">Filtro 2</mat-option>
+                <mat-option value="filter3">Filtro 3</mat-option>
+            </mat-select>
+          </mat-form-field>          
+    </div>
+    <div class="option">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Fecha de registro">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+</div>
+
+<div class="tabla-container">
+    <table class="table">
+        <thead>
+            <tr>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let marca of getPagedMarcas()">
+            <td>{{ marca.nombre }}</td>
+            <td>{{ marca.estado }}</td>
+            <td>
+                <button (click)="editarMarca(marca)" class="habilitar-button">Editar</button>
+                <button (click)="deshabilitarMarca(marca)" class="deshabilitar-button">Deshabilitar</button>
+                <button (click)="eliminarMarca(marca)" class="eliminar-button">Eliminar</button>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="pagination-container">
+    <i class="bi bi-plus-square-fill" (click)="openFormDialog()"></i>
+    <p class="pagination-text">Mostrando {{ (currentPage * itemsPerPage + 1) }} - {{ (currentPage + 1) * itemsPerPage < marcaData.length ? (currentPage + 1) * itemsPerPage : marcaData.length }} de {{ marcaData.length }} entradas</p>
+        <button class="previous-button" (click)="previousPage()" [disabled]="currentPage === 0">Anterior</button>
+        <button class="current-text">{{ currentPage + 1 }}</button>
+        <button class="next-button" (click)="nextPage()" [disabled]="currentPage === totalPages - 1">Siguiente</button>
+</div>
+
+<div class="export-data-bottom">
+    <button class="button-pdf">
+        <img src="../../../assets/exportar.png" alt="Exportar PDF"> Exportar PDF
+    </button>
+    <button class="button-excel">
+        <img src="../../../assets/exportar.png" alt="Importar Excel"> Importar Excel
+    </button>
+  </div>

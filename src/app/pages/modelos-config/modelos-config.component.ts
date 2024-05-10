@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NombreVentanaService } from '../../providers/nombre-ventana.service';
-import { forkJoin } from 'rxjs';
 import { ModeloformComponent } from 'src/app/forms/modeloform/modeloform.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Modeloconfig } from 'src/app/interfaces/modeloconfig';
@@ -30,8 +29,6 @@ export class ModelosConfigComponent {
     this.servMarca.getResponse().subscribe((response) => {
       this.marcaData = response as Marcaconfig[];
     });
-
-    console.log(this.marcaData);
   }
 
   get totalPages(): number {
@@ -59,15 +56,16 @@ export class ModelosConfigComponent {
     return this.marcaData.find(marca => marca.id_marca === idmarca)?.nombre ?? "No encontrado";
   }
 
-  valorMarca(idmarca:number): Marcaconfig{
-    return this.marcaData.find(marca => marca.id_marca === idmarca) ?? {id_marca:0, nombre:"No encontrado"};
+  valorMarca(idmarca:number): String{
+    const valor = this.marcaData.find(marca => marca.id_marca === idmarca) ?? {id_marca:0, nombre:"No encontrado"};
+    return valor.nombre;
   }
 
   editarModelo(modelo:Modeloconfig){
     const dialogRef = this.formulario.open(ModeloformComponent, {
       width: '450px',
       height:'293px',
-      data: { titulo: 'Editar Modelo', id_modelo: modelo.id_modelo, preSelectedValue:this.valorMarca(modelo.id_marca), id_marca: modelo.id_marca, nombre: modelo.nombre }
+      data: { create:false, edit:true, titulo: 'Editar Modelo', nombre: modelo.nombre, id_modelo: modelo.id_modelo, id_marca:modelo.id_marca, marca:this.valorMarca(modelo.id_marca) }
     });
   }
 
@@ -83,7 +81,7 @@ export class ModelosConfigComponent {
     const dialogRef = this.formulario.open(ModeloformComponent, {
       width: '450px',
       height:'293px',
-      data: { titulo: 'Registro nuevo Modelo', id_marca: 0, nombre: '', preSelectedValue: {id_modelo: 0, id_marca: 0, nombre: ''} }
+      data: { create:true, edit:false, titulo: 'Registro nuevo Modelo', id_marca: 0, nombre: '', preSelectedValue: {id_modelo: 0, id_marca: 0, nombre: ''} }
     });
 
     dialogRef.afterClosed().subscribe(result => {

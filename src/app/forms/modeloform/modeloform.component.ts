@@ -30,9 +30,11 @@ export class ModeloformComponent {
 
   sizeModelos: number = 0;
   dataMarcas: Marcaconfig[] = [];
-  preSelectedValue: Marcaconfig = {
-    id_marca: 0,
-    nombre: ''};
+  preSelectedValue: Modeloconfig = {
+    id_marca: this.data.id_marca,
+    id_modelo: this.data.id_modelo,
+    nombre: this.data.nombre,
+    estado: "Activo"};
 
   ngOnInit() {
     this.usersq.setWindowName('MODELOS');
@@ -54,10 +56,29 @@ export class ModeloformComponent {
       const nuevoModelo: Modeloconfig = {
         id_modelo: this.id_modelo,
         id_marca: this.id_marca,
-        nombre: this.nombre
+        nombre: this.nombre,
+        estado: "Activo"
       };
       this.modelosService.createModelo(nuevoModelo).subscribe((response) => {
         this.snackBar.open('Modelo creado', 'Cerrar', {
+          duration: 2000
+        });
+        this.referencia.close();
+      });
+    }
+  }
+
+  update(): void {
+    console.log(this.validateForm())
+    if (!this.validateForm()) {
+      const nuevoModelo: Modeloconfig = {
+        id_modelo: this.data.id_modelo,
+        id_marca: this.data.id_marca,
+        nombre: this.data.nombre,
+        estado: "Activo"
+      };
+      this.modelosService.updateModelo(nuevoModelo.id_modelo, nuevoModelo).subscribe((response) => {
+        this.snackBar.open('Modelo actualizado', 'Cerrar', {
           duration: 2000
         });
         this.referencia.close();

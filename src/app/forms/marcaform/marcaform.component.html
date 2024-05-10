@@ -1,1 +1,20 @@
-<p>marcaform works!</p>
+<div class="dialog-content">
+    <h2 mat-dialog-title>{{ data.titulo }}</h2>
+
+      <div class="floating-input">
+        <label for="marcaInput">Marca: </label>
+        <input type="text" id="marcaInput" [(ngModel)]="nombre" name="marcaInput" placeholder="{{ data.nombre }}" required />
+      </div>
+      <div class="error-container">
+        <p id="errorMessage">{{ errorMessageNombre }}</p>
+      </div>
+
+    <mat-dialog-actions class="custom-dialog-actions">
+        <button class="custom-button"(click)="close()">Cancelar</button>
+        <button *ngIf="data.create" class="custom-button"(click)="save()">Registrar</button>
+        <button *ngIf="data.edit" class="custom-button"(click)="update()">Editar</button>
+    </mat-dialog-actions>
+    <div class="error-container">
+        <p id="errorMessage">{{ errorMessageGeneral }}</p>
+      </div> 
+</div>

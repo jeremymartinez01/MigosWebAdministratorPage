@@ -3,8 +3,8 @@
 
       <div class="floating-input">
         <label for="marcaInput">Marca:</label>
-        <mat-select [(ngModel)]="id_marca" id="marcaInput" name="marcaInput" required>
-          <mat-option *ngFor="let marca of dataMarcas" [value]="marca.id_marca">
+        <mat-select [(ngModel)]="id_marca" placeholder="{{ data.marca }}" id="marcaInput" name="marcaInput" required>
+          <mat-option *ngFor="let marca of dataMarcas" [value]="marca.id_marca" >
             {{ marca.nombre }}
           </mat-option>
         </mat-select>
@@ -14,8 +14,8 @@
         <p id="errorMessage">{{ errorMessageMarca }}</p>
       </div>
       <div class="floating-input">
-        <label for="modeloInput">Modelo: {{ data.nombre }}</label>
-        <input type="text" id="modeloInput" [(ngModel)]="nombre" name="modeloInput" required />
+        <label for="modeloInput">Modelo: </label>
+        <input type="text" id="modeloInput" [(ngModel)]="nombre" name="modeloInput" placeholder="{{ data.nombre }}" required />
       </div>
       <div class="error-container">
         <p id="errorMessage">{{ errorMessageNombre }}</p>
@@ -23,7 +23,8 @@
 
     <mat-dialog-actions class="custom-dialog-actions">
         <button class="custom-button"(click)="close()">Cancelar</button>
-        <button class="custom-button"(click)="save()">Registrar</button>
+        <button *ngIf="data.create" class="custom-button"(click)="save()">Registrar</button>
+        <button *ngIf="data.edit" class="custom-button"(click)="update()">Editar</button>
     </mat-dialog-actions>
     <div class="error-container">
         <p id="errorMessage">{{ errorMessageGeneral }}</p>

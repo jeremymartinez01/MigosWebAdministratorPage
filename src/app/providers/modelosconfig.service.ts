@@ -15,9 +15,9 @@ export class ModelosconfigService {
   getResponse() {
     return this.http.get(this.URL);
   }
-  updateModelo(modeloId: number, updatedMarca: any) {
+  updateModelo(modeloId: number, updatedModelo: Modeloconfig) {
     const updateUserURL = `${this.URL}${modeloId}/`;
-    return this.http.put(updateUserURL, updatedMarca);
+    return this.http.put(updateUserURL, updatedModelo);
   }
   createModelo(m:Modeloconfig):Observable<any>{
     return this.http.post(this.URL,m);
