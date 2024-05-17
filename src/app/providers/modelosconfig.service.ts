@@ -15,6 +15,10 @@ export class ModelosconfigService {
   getResponse() {
     return this.http.get(this.URL);
   }
+  getModeloById(modeloId: number) {
+    const getModeloURL = `${this.URL}${modeloId}/`;
+    return this.http.get(getModeloURL);
+  }
   updateModelo(modeloId: number, updatedModelo: Modeloconfig) {
     const updateUserURL = `${this.URL}${modeloId}/`;
     return this.http.put(updateUserURL, updatedModelo);

@@ -15,6 +15,10 @@ export class MarcasconfigService {
   getResponse() {
     return this.http.get(this.URL);
   }
+  getMarcaById(marcaId: number) {
+    const getMarcaURL = `${this.URL}${marcaId}/`;
+    return this.http.get(getMarcaURL);
+  }
   updateMarca(marcaId: number, updatedMarca: any) {
     const updateUserURL = `${this.URL}${marcaId}/`;
     return this.http.put(updateUserURL, updatedMarca);

@@ -1,0 +1,101 @@
+[debug] [2024-05-10T19:06:28.105Z] ----------------------------------------------------------------------
+[debug] [2024-05-10T19:06:28.108Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\alex_\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-05-10T19:06:28.108Z] CLI Version:   13.8.2
+[debug] [2024-05-10T19:06:28.108Z] Platform:      win32
+[debug] [2024-05-10T19:06:28.108Z] Node Version:  v20.9.0
+[debug] [2024-05-10T19:06:28.108Z] Time:          Fri May 10 2024 14:06:28 GMT-0500 (Colombia Standard Time)
+[debug] [2024-05-10T19:06:28.109Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-05-10T19:06:28.114Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-05-10T19:06:28.115Z] > authorizing via signed-in user (migoadvstesting@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\alex_\Desktop\MIGO WEB\MigosWebAdministratorPage
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-05-10T19:07:38.131Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-05-10T19:07:38.730Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-05-10T19:07:38.731Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2024-05-10T19:07:47.271Z] ----------------------------------------------------------------------
+[debug] [2024-05-10T19:07:47.274Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\alex_\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-05-10T19:07:47.274Z] CLI Version:   13.8.2
+[debug] [2024-05-10T19:07:47.274Z] Platform:      win32
+[debug] [2024-05-10T19:07:47.274Z] Node Version:  v20.9.0
+[debug] [2024-05-10T19:07:47.274Z] Time:          Fri May 10 2024 14:07:47 GMT-0500 (Colombia Standard Time)
+[debug] [2024-05-10T19:07:47.274Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-05-10T19:07:47.282Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-05-10T19:07:47.282Z] > authorizing via signed-in user (migoadvstesting@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\alex_\Desktop\MIGO WEB\MigosWebAdministratorPage
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-05-10T19:07:50.874Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-05-10T19:07:51.527Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-05-10T19:07:51.528Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2024-05-10T19:08:24.711Z] ----------------------------------------------------------------------
+[debug] [2024-05-10T19:08:24.713Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\alex_\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-05-10T19:08:24.713Z] CLI Version:   13.8.2
+[debug] [2024-05-10T19:08:24.713Z] Platform:      win32
+[debug] [2024-05-10T19:08:24.713Z] Node Version:  v20.9.0
+[debug] [2024-05-10T19:08:24.714Z] Time:          Fri May 10 2024 14:08:24 GMT-0500 (Colombia Standard Time)
+[debug] [2024-05-10T19:08:24.714Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-05-10T19:08:24.719Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-05-10T19:08:24.720Z] > authorizing via signed-in user (migoadvstesting@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\alex_\Desktop\MIGO WEB\MigosWebAdministratorPage
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2024-05-10T19:09:13.230Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2024-05-10T19:09:13.231Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"migo-webadmin","name":"MigoWeb"}
+[debug] [2024-05-10T19:09:13.739Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 409
+[debug] [2024-05-10T19:09:13.739Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"error":{"code":409,"message":"Requested entity already exists","status":"ALREADY_EXISTS"}}
+[debug] [2024-05-10T19:09:14.081Z] FirebaseError: HTTP Error: 409, Requested entity already exists
+    at responseToError (C:\Users\alex_\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\alex_\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:305:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to create project because there is already a project with ID migo-webadmin. Please try again with a unique project ID.

@@ -1,1 +1,205 @@
-<p>campaniaform works!</p>
+<div class="dialog-content">
+    <h2 mat-dialog-title>Registro nueva Campaña</h2>
+
+    <!-- Text Inputs -->
+    <div class="floating-input">
+        <label for="nombre_campana">Nombre Campaña:</label>
+        <input type="text" id="nombre_campana" name="nombre_campana" required />
+    </div>
+    
+    <div class="floating-input">
+        <label for="correo_responsable">Correo Responsable:</label>
+        <input type="email" id="correo_responsable" name="correo_responsable" required />
+    </div>
+    
+    <div class="floating-input">
+        <label for="nombre_responsable">Nombre Responsable:</label>
+        <input type="text" id="nombre_responsable" name="nombre_responsable" required />
+    </div>
+    
+    <div class="floating-input">
+        <label for="tipo_brandeo">Tipo Brandeo:</label>
+        <input type="text" id="tipo_brandeo" name="tipo_brandeo" required />
+    </div>
+    
+    <!-- Date Inputs -->
+    <div class="floating-input">
+        <label for="fecha_inicio">Fecha Inicio:</label>
+        <input type="date" id="fecha_inicio" name="fecha_inicio" required />
+    </div>
+    
+    <div class="floating-input">
+        <label for="fecha_fin">Fecha Fin:</label>
+        <input type="date" id="fecha_fin" name="fecha_fin" required />
+    </div>
+    
+    <div class="floating-input">
+        <label for="fecha_fin_registro">Fecha Fin Registro:</label>
+        <input type="date" id="fecha_fin_registro" name="fecha_fin_registro" required />
+    </div>
+    
+    <div class="floating-input">
+        <label for="fecha_creacion">Fecha Creación:</label>
+        <input type="date" id="fecha_creacion" name="fecha_creacion" required />
+    </div>
+    
+    <div class="floating-input">
+        <label for="fecha_modificacion">Fecha Modificación:</label>
+        <input type="date" id="fecha_modificacion" name="fecha_modificacion" required />
+    </div>
+    
+    <!-- Time Inputs -->
+    <div class="floating-input">
+        <label for="hora_monetizable_inicio">Hora Monetizable Inicio:</label>
+        <input type="time" id="hora_monetizable_inicio" name="hora_monetizable_inicio" required />
+    </div>
+    
+    <div class="floating-input">
+        <label for="hora_monetizable_fin">Hora Monetizable Fin:</label>
+        <input type="time" id="hora_monetizable_fin" name="hora_monetizable_fin" required />
+    </div>
+    
+    <!-- Number Inputs (Combobox) -->
+    <div class="floating-input">
+        <label for="id_campana">ID Campaña:</label>
+        <select id="id_campana" name="id_campana">
+        <!-- Options to be populated dynamically -->
+        </select>
+    </div>
+    
+    <div class="floating-input">
+        <label for="id_sector">ID Sector:</label>
+        <select id="id_sector" name="id_sector">
+        <!-- Options to be populated dynamically -->
+        </select>
+    </div>
+    
+    <div class="floating-input">
+        <label for="presupuesto">Presupuesto:</label>
+        <input type="number" id="presupuesto" name="presupuesto" required />
+    </div>
+    
+    <div class="floating-input">
+        <label for="tarifa_base">Tarifa Base:</label>
+        <input type="number" id="tarifa_base" name="tarifa_base" required />
+    </div>
+    
+    <div class="floating-input">
+        <label for="tarifa_min">Tarifa Min:</label>
+        <input type="number" id="tarifa_min" name="tarifa_min" required />
+    </div>
+    
+    <div class="floating-input">
+        <label for="tarifa_max">Tarifa Max:</label>
+        <input type="number" id="tarifa_max" name="tarifa_max" required />
+    </div>
+    
+    <div class="floating-input">
+        <label for="cobro_minimo">Cobro Mínimo:</label>
+        <input type="number" id="cobro_minimo" name="cobro_minimo" required />
+    </div>
+    
+    <div class="floating-input">
+        <label for="taller_brandeo">Taller Brandeo:</label>
+        <select id="taller_brandeo" name="taller_brandeo">
+        <!-- Options to be populated dynamically -->
+        </select>
+    </div>
+    
+    <div class="floating-input">
+        <label for="estado">Estado:</label>
+        <select id="estado" name="estado">
+        <!-- Options to be populated dynamically -->
+        </select>
+    </div>
+    
+    <div class="floating-input">
+        <label for="id_empresa">ID Empresa:</label>
+        <select id="id_empresa" name="id_empresa">
+        <!-- Options to be populated dynamically -->
+        </select>
+    </div>
+    
+    <div class="floating-input">
+        <label for="id_ciudad">ID Ciudad:</label>
+        <select id="id_ciudad" name="id_ciudad">
+        <!-- Options to be populated dynamically -->
+        </select>
+    </div>
+    
+    <div class="floating-input">
+        <label for="id_pais">ID País:</label>
+        <select id="id_pais" name="id_pais">
+        <!-- Options to be populated dynamically -->
+        </select>
+    </div>
+    
+    <!-- Checkbox Inputs -->
+    <div class="floating-input">
+        <label for="carroceria_capo">Carrocería Capo:</label>
+        <input type="checkbox" id="carroceria_capo" name="carroceria_capo" />
+    </div>
+    
+    <div class="floating-input">
+        <label for="puerta_conductor">Puerta Conductor:</label>
+        <input type="checkbox" id="puerta_conductor" name="puerta_conductor" />
+    </div>
+    
+    <div class="floating-input">
+        <label for="puerta_pasajero">Puerta Pasajero:</label>
+        <input type="checkbox" id="puerta_pasajero" name="puerta_pasajero" />
+    </div>
+    
+    <div class="floating-input">
+        <label for="puerta_traseratzq">Puerta Trasera Izq:</label>
+        <input type="checkbox" id="puerta_traseratzq" name="puerta_traseratzq" />
+    </div>
+    
+    <div class="floating-input">
+        <label for="puerta_traseraDer">Puerta Trasera Der:</label>
+        <input type="checkbox" id="puerta_traseraDer" name="puerta_traseraDer" />
+    </div>
+    
+    <div class="floating-input">
+        <label for="carroceria_guantera">Carrocería Guantera:</label>
+        <input type="checkbox" id="carroceria_guantera" name="carroceria_guantera" />
+    </div>
+    
+    <div class="floating-input">
+        <label for="carroceria_techo">Carrocería Techo:</label>
+        <input type="checkbox" id="carroceria_techo" name="carroceria_techo" />
+    </div>
+    
+    <div class="floating-input">
+        <label for="sedan_admisible">Sedán Admisible:</label>
+        <input type="checkbox" id="sedan_admisible" name="sedan_admisible" />
+    </div>
+    
+    <div class="floating-input">
+        <label for="suv_admisible">SUV Admisible:</label>
+        <input type="checkbox" id="suv_admisible" name="suv_admisible" />
+    </div>
+    
+    <div class="floating-input">
+        <label for="camion_admisible">Camión Admisible:</label>
+        <input type="checkbox" id="camion_admisible" name="camion_admisible" />
+    </div>
+    
+    <div class="floating-input">
+        <label for="camioneta_admisible">Camioneta Admisible:</label>
+        <input type="checkbox" id="camioneta_admisible" name="camioneta_admisible" />
+    </div>
+    
+    <div class="floating-input">
+        <label for="bus_admisible">Bus Admisible:</label>
+        <input type="checkbox" id="bus_admisible" name="bus_admisible" />
+    </div>
+
+    <mat-dialog-actions class="custom-dialog-actions">
+        <button class="custom-button"(click)="close()">Cancelar</button>
+        <button class="custom-button"(click)="save()">Crear</button>
+    </mat-dialog-actions>
+    <div class="error-container">
+        <p id="errorMessage">{{ errorMessageGeneral }}</p>
+    </div> 
+</div>

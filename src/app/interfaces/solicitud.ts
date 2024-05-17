@@ -1,8 +1,8 @@
 export interface Solicitud {
     id_formulario: number,
     telefono_conductor: string,
-    licencia: string,
-    matricula: string,
+    licencia: any,
+    matricula: any,
     numero_cuenta_bancaria: string,
     cedula: string,
     entidad_bancaria: string,

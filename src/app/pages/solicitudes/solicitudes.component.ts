@@ -13,6 +13,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Empresa } from 'src/app/interfaces/empresa';
 import { ClientelistService } from 'src/app/providers/clientelist.service';
 import { Cliente } from 'src/app/interfaces/cliente';
+import { Vehiculo } from 'src/app/interfaces/vehiculo';
+import { HttpClient } from '@angular/common/http';
+import { SolicitudDetailComponent } from '../solicitud-detail/solicitud-detail.component';
+import { VehiculolistService } from 'src/app/providers/vehiculolist.service';
+import { Marcaconfig } from 'src/app/interfaces/marcaconfig';
+import { MarcasconfigService } from 'src/app/providers/marcasconfig.service';
+import { Modeloconfig } from 'src/app/interfaces/modeloconfig';
+import { ModelosconfigService } from 'src/app/providers/modelosconfig.service';
 
 @Component({
   selector: 'app-solicitudes',
@@ -22,13 +30,15 @@ import { Cliente } from 'src/app/interfaces/cliente';
 export class SolicitudesComponent {
   
   constructor(private dataCampanas: CampanialistService,private dataEmpresas: EmpresalistService, private dataSolicitudes: SolicitudeslistService,
-    private formulario: MatDialog, private nombreVentanaService: NombreVentanaService,
-    private snackBar:MatSnackBar, private dataClientes: ClientelistService){}
+    private formulario: MatDialog, private nombreVentanaService: NombreVentanaService, private http: HttpClient,
+    private snackBar:MatSnackBar, private dataClientes: ClientelistService, private vehiculoService: VehiculolistService,
+    private marcaService: MarcasconfigService, private modeloService: ModelosconfigService){}
     
   solicitudes: Solicitud[]= [];
   campanaData: Campania[] = [];
   empresaData: Empresa[] = [];
   clienteData: Cliente[] = [];
+  vehiculoData: any[] = [];
 
   roleId:number = 0;
   userId: number = 0;
@@ -43,6 +53,10 @@ export class SolicitudesComponent {
 
     this.dataSolicitudes.getResponse().subscribe((data: Object) => {
       this.solicitudes = data as Solicitud[];
+    });
+
+    this.vehiculoService.getResponse().subscribe((data: Object) => {
+      this.vehiculoData = data as Vehiculo[];
     });
 
     this.nombreVentanaService.idRole$.subscribe((id: number) => {
@@ -72,53 +86,41 @@ export class SolicitudesComponent {
     });
   }
 
-
   aceptarSolicitud(solicitud: Solicitud): void {
-    const nuevaSol = {
-      id_formulario: solicitud.id_formulario,
-      telefono_conductor: solicitud.telefono_conductor,
-      licencia: solicitud.licencia,
-      matricula: solicitud.matricula,
-      numero_cuenta_bancaria: solicitud.numero_cuenta_bancaria,
-      cedula: solicitud.cedula,
-      entidad_bancaria: solicitud.entidad_bancaria,
-      tipo_cuenta_bancaria: solicitud.tipo_cuenta_bancaria,
-      correo_electronico: solicitud.correo_electronico,
-      fecha_envio: solicitud.fecha_envio,
+    var nuevaSol = {
       estado_solicitud: "aceptado",
-      id_usuario: solicitud.id_usuario,
-      id_campana: solicitud.id_campana,
-      id_ciudad: solicitud.id_ciudad,
-      id_pais: solicitud.id_pais,
-      id_vehiculo: solicitud.id_vehiculo
-  }
+    }
+
     this.dataSolicitudes.updateSolicitud(solicitud.id_formulario, nuevaSol).subscribe((response) => {});
+
+    this.snackBar.open('Solicitud aceptada', 'Cerrar', {
+      duration: 2000,
+    });
   }
 
   rechazarSolicitud(solicitud: Solicitud): void {
     const nuevaSol = {
-      id_formulario: solicitud.id_formulario,
-      telefono_conductor: solicitud.telefono_conductor,
-      licencia: solicitud.licencia,
-      matricula: solicitud.matricula,
-      numero_cuenta_bancaria: solicitud.numero_cuenta_bancaria,
-      cedula: solicitud.cedula,
-      entidad_bancaria: solicitud.entidad_bancaria,
-      tipo_cuenta_bancaria: solicitud.tipo_cuenta_bancaria,
-      correo_electronico: solicitud.correo_electronico,
-      fecha_envio: solicitud.fecha_envio,
       estado_solicitud: "rechazado",
-      id_usuario: solicitud.id_usuario,
-      id_campana: solicitud.id_campana,
-      id_ciudad: solicitud.id_ciudad,
-      id_pais: solicitud.id_pais,
-      id_vehiculo: solicitud.id_vehiculo
-  }
+    }
     this.dataSolicitudes.updateSolicitud(solicitud.id_formulario, nuevaSol).subscribe((response) => {});
+
+    this.snackBar.open('Solicitud rechazada', 'Cerrar', {
+      duration: 2000,
+    });
   }
 
   verFormulario(solicitud: Solicitud): void {
+    console.log(this.getNombre(solicitud.id_campana));
+    const dialogRef = this.formulario.open(SolicitudDetailComponent, {
+      width: '950px',
+      height: '800px',
+      data: {formulario: solicitud, campana: this.getNombreCampana(solicitud.id_campana), nombre: this.getNombre(solicitud.id_usuario),
+              vehiculo: this.vehiculoData.find(vehiculo => vehiculo.id_vehiculo === solicitud.id_vehiculo,)}
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      ////
+    });
   }
 
   loadFilteredSolicitudes() {

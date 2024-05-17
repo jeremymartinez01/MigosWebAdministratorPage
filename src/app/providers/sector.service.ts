@@ -18,7 +18,7 @@ export class SectorService {
   }
 
   obtenerSector(usuarioId: number): Observable<SectorGet[]> {
-    const url = `${this.apiUrl}sectores_por_usuario/${usuarioId}/`;
+    const url = `${this.apiUrl}Database/sectores/`;
     return this.http.get<SectorGet[]>(url);
   }
 

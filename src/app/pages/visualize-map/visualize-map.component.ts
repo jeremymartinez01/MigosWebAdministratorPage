@@ -37,8 +37,8 @@ export class VisualizeMapComponent implements OnInit {
   initMap(): void {
     this.googleMapsService.importLibrary('maps').then(({ Map }) => {
       this.map = new Map(this.mapElement.nativeElement, {
-        center: { lat: -2.189822999999990, lng: -79.88775 },
-        zoom: 13,
+        center: this.sector.centro,
+        zoom: this.sector.zoom,
         mapTypeControl: false,
         streetViewControl: false,
       });

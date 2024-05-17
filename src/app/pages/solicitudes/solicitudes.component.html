@@ -25,6 +25,7 @@
           <th>Identificación</th>
           <th>Campaña</th>
           <th>Fecha de envio</th>
+          <th>Estado</th>
           <th>Formulario</th>
           <th>Opciones</th>
         </tr>
@@ -35,7 +36,8 @@
           <td>{{ solicitud.cedula }}</td>
           <td>{{ getNombreCampana(solicitud.id_campana) }}</td><!--conseguir con servicio a partir de campanaId-->
           <td>{{ solicitud.fecha_envio }}</td>
-          <td style="color: blue;">Ver detalle</td>
+          <td>{{ solicitud.estado_solicitud }}</td>
+          <td> <button (click)="verFormulario(solicitud)">Ver Formulario</button> </td>
           <td>
             <button (click)="aceptarSolicitud(solicitud)" class="habilitar-button">Aceptar</button>
             <button (click)="rechazarSolicitud(solicitud)" class="eliminar-button">Rechazar</button>

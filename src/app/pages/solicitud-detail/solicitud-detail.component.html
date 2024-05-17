@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="dialog-content">
+        <p></p>
+        <p><strong>Estado:</strong> {{ data.formulario.estado_solicitud }}</p>
+        <p><strong>Nombre:</strong> {{ data.nombre }}</p>
+        <p><strong>Correo Electronico</strong> {{ data.formulario.correo_electronico }} </p>
+        <p><strong>Identificación:</strong> {{ data.formulario.cedula }}</p>
+        <p><strong>Licencia:</strong><a href="{{ data.formulario.licencia }}" target=”_blank”> Ver licencia</a></p>
+        <p><strong>Matricula:</strong><a href="{{ data.formulario.matricula }}" target=”_blank”> Ver matricula</a></p>
+        <p><strong>Entidad Bancaria:</strong> {{ data.formulario.entidad_bancaria }}</p>
+        <p><strong>Tipo de Cuenta:</strong> {{ data.formulario.tipo_cuenta_bancaria }}</p>
+        <p><strong>Numero de cuenta:</strong> {{ data.formulario.numero_cuenta_bancaria }}</p>
+        <p><strong>Campaña:</strong> {{ data.campana }}</p>
+        <p><strong>Fecha de envío:</strong> {{ data.formulario.fecha_envio }}</p>
+        <p><strong>Tipo Vehiculo:</strong> {{ data.vehiculo.categoria_vehiculo }}</p>
+        <p><strong>Marca:</strong> {{ marca.nombre }}</p>
+        <p><strong>Modelo:</strong> {{ modelo.nombre }}</p>
+        <p><strong>Año:</strong> {{ data.vehiculo.anio }}</p>
+        <p><strong>Color:</strong> {{ data.vehiculo.color_vehiculo }}</p>
+        <p><strong>Placa:</strong> {{ data.vehiculo.placa }}</p>
+    </div>
+    
+    <div class="images_container" >
+        <img src="{{ data.vehiculo.imagen_izq }}" alt="Lado Izquierdo" width="400">
+        <img src="{{ data.vehiculo.imagen_der }}" alt="Lado Derecho" width="400">
+        <img src="{{ data.vehiculo.imagen_frontal }}" alt="Lado Frontal" width="400">
+        <img src="{{ data.vehiculo.imagen_trasera }}" alt="Lado Trasero" width="400">
+        <img src="{{ data.vehiculo.imagen_techo }}" alt="Techo" width="400">
+    </div>
+</div>

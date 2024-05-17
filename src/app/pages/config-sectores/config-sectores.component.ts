@@ -44,6 +44,7 @@ export class ConfigSectoresComponent implements OnInit, AfterViewInit {
         this.sectores = data;
         this.totalItems = this.sectores.length;
         this.onPageChange(this.currentPage);
+        console.log('Lista de sectores:', this.sectores);
       },
       (error) => {
         console.error('Error al obtener la lista de sectores', error);
@@ -82,7 +83,16 @@ export class ConfigSectoresComponent implements OnInit, AfterViewInit {
           fecha_creacion: fecha_formateada,
           cerco_virtual: result.coordinates,
           fecha_modificacion: fecha_formateada,
-          estado: 1,
+          estado: 1,//por modificar
+          id_sector: 0,
+          id_campana: 0,
+          id_ciudad: 0,
+          id_pais: 0,
+          zoom: 0,
+          centro: {
+            lat: 0,
+            lng: 0
+          }
         };
 
         // Crea el sector en la base de datos

@@ -17,7 +17,7 @@ export class SolicitudeslistService {
 
   updateSolicitud(solicitudId: number, updatedSolicitud: any) {
     const updateUserURL = `${this.URL}${solicitudId}/`;
-    return this.http.put(updateUserURL, updatedSolicitud);
+    return this.http.patch(updateUserURL, updatedSolicitud);
   }
 
 }

@@ -50,6 +50,7 @@ import { ModelosConfigComponent } from './pages/modelos-config/modelos-config.co
 import { MarcasConfigComponent } from './pages/marcas-config/marcas-config.component';
 import { ModeloformComponent } from './forms/modeloform/modeloform.component';
 import { MarcaformComponent } from './forms/marcaform/marcaform.component';
+import { SolicitudDetailComponent } from './pages/solicitud-detail/solicitud-detail.component';
 
 
 export const DATE_FORMATS: MatDateFormats ={
@@ -93,6 +94,7 @@ export const DATE_FORMATS: MatDateFormats ={
     MarcasConfigComponent,
     ModeloformComponent,
     MarcaformComponent,
+    SolicitudDetailComponent,
 
   ],
   imports: [
