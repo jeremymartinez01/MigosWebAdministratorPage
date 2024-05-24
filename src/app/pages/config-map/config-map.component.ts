@@ -82,6 +82,9 @@ export class ConfigMapComponent implements OnInit {
         this.createClicked.emit(this.polygonsData= {
           name: this.name,
           coordinates: this.polygonData,
+          id_pais: 1,
+          id_ciudad: 1,
+          id_campana: 8
         });
         
         this.dialogRef.close(this.polygonsData); 

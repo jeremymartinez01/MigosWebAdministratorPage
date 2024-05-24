@@ -84,10 +84,10 @@ export class ConfigSectoresComponent implements OnInit, AfterViewInit {
           cerco_virtual: result.coordinates,
           fecha_modificacion: fecha_formateada,
           estado: 1,//por modificar
-          id_sector: 0,
-          id_campana: 0,
-          id_ciudad: 0,
-          id_pais: 0,
+          id_sector: 39,
+          id_campana: 8,
+          id_ciudad: 1,
+          id_pais: 1,
           zoom: 0,
           centro: {
             lat: 0,
